@@ -1,5 +1,5 @@
 package Modelo;
 
-public class Persona {
+public class Cliente {
 
 }
