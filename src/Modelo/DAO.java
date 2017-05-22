@@ -17,6 +17,7 @@ public class DAO {
 	/**
 	 * graba un objeto serialziado con sobreescritura en el archivo definido en
 	 * el path
+	 * 
 	 * @param obj
 	 *            lo que graba
 	 * @param path
@@ -36,10 +37,10 @@ public class DAO {
 				archivo.createNewFile();
 				inicial = true;
 			}
-			//este flujo es de sobreescritura
-//			flujoW = new FileOutputStream(archivo);
-//			este añade
-			flujoW = new FileOutputStream(archivo,!unico);
+			// este flujo es de sobreescritura
+			// flujoW = new FileOutputStream(archivo);
+			// este añade
+			flujoW = new FileOutputStream(archivo, !unico);
 			if (unico || inicial)
 				adaptadorW = new ObjectOutputStream(flujoW);
 			else
@@ -100,5 +101,5 @@ public class DAO {
 		}
 		return socio;
 	}
-	
+
 }
