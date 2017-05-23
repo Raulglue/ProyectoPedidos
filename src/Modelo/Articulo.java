@@ -13,6 +13,7 @@ public class Articulo implements Serializable {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;
+		
 	}
 
 	public String getId() {
@@ -25,6 +26,14 @@ public class Articulo implements Serializable {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		return this.id == ((Articulo) obj).id;
+
 	}
 
 	public float getPrecio() {
