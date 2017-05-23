@@ -52,7 +52,7 @@ public class UI extends JFrame {
 		JMenuItem mntmCliente = new JMenuItem("Cliente");
 		mntmCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//contentPane.show(panelCliente, "name_107006593452389");
+				((CardLayout)contentPane.getLayout()).show(contentPane, "name_107006593452389");
 			}
 		});
 		mnMen.add(mntmCliente);
@@ -60,7 +60,7 @@ public class UI extends JFrame {
 		JMenuItem mntmPedido = new JMenuItem("Pedido");
 		mntmPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//.show(panelPedido, "name_107034967661443");
+				((CardLayout)contentPane.getLayout()).show(contentPane, "name_107034967661443");
 			}
 		});
 		mnMen.add(mntmPedido);
@@ -68,7 +68,7 @@ public class UI extends JFrame {
 		JMenuItem mntmArticulo = new JMenuItem("Articulo");
 		mntmArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//.show(panelArticulo, "name_107059198950418");
+				((CardLayout)contentPane.getLayout()).show(contentPane, "name_107059198950418");
 			}
 		});
 		mnMen.add(mntmArticulo);
