@@ -16,6 +16,10 @@ import java.awt.CardLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.FlowLayout;
 
 public class UI extends JFrame {
 	private JPanel contentPane;
@@ -91,7 +95,17 @@ public class UI extends JFrame {
 		
 		JLabel lblPanelCliente = new JLabel("Panel Cliente");
 		lblPanelCliente.setHorizontalAlignment(SwingConstants.CENTER);
-		panelCliente.add(lblPanelCliente, BorderLayout.CENTER);
+		panelCliente.add(lblPanelCliente, BorderLayout.NORTH);
+		
+		JPanel panel_1 = new JPanel();
+		panelCliente.add(panel_1, BorderLayout.CENTER);
+		
+		JButton btnAltaCliente = new JButton("Dar de alta a cliente");
+		
+		JButton btnConsultarCliente = new JButton("Consultar cliente");
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 150, 45));
+		panel_1.add(btnAltaCliente);
+		panel_1.add(btnConsultarCliente);
 		
 		JPanel panelPedido = new JPanel();
 		contentPane.add(panelPedido, "name_107034967661443");
