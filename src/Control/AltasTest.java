@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import com.sun.xml.internal.bind.v2.TODO;
 
 import Modelo.Articulo;
 import Modelo.Cliente;
