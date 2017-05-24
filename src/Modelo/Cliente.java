@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Cliente implements Serializable {
 	private String dni;
 	private String nombre;
-
+	private String direccion;
 	public Cliente(String dni, String nombre) {
 		super();
 		this.dni = dni;
