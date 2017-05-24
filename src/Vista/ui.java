@@ -89,6 +89,7 @@ public class UI extends JFrame {
 		menuBar.add(btnHome);
 		
 		JMenu mnMen = new JMenu("Men\u00FA");
+		mnMen.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		menuBar.add(mnMen);
 		
 		JMenuItem mntmCliente = new JMenuItem("Cliente");
