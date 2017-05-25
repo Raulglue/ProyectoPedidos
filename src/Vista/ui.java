@@ -419,7 +419,7 @@ public class UI extends JFrame {
 		lblDNIConsultaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblDNIConsultaCliente = new GridBagConstraints();
 		gbc_lblDNIConsultaCliente.anchor = GridBagConstraints.EAST;
-		gbc_lblDNIConsultaCliente.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDNIConsultaCliente.insets = new Insets(0, 10, 5, 5);
 		gbc_lblDNIConsultaCliente.gridx = 1;
 		gbc_lblDNIConsultaCliente.gridy = 1;
 		panelConsultaClienteBtn.add(lblDNIConsultaCliente, gbc_lblDNIConsultaCliente);
@@ -460,6 +460,7 @@ public class UI extends JFrame {
 		panelConsultaClienteBtn.add(scrollPaneConsultaCliente, gbc_scrollPaneConsultaCliente);
 		
 		JTextPane textPaneConsultaCliente = new JTextPane();
+		textPaneConsultaCliente.setEditable(false);
 		textPaneConsultaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPaneConsultaCliente.setViewportView(textPaneConsultaCliente);
 		
@@ -491,7 +492,7 @@ public class UI extends JFrame {
 		lblIDAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblIDAltaPedido = new GridBagConstraints();
 		gbc_lblIDAltaPedido.anchor = GridBagConstraints.EAST;
-		gbc_lblIDAltaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIDAltaPedido.insets = new Insets(0, 10, 5, 5);
 		gbc_lblIDAltaPedido.gridx = 1;
 		gbc_lblIDAltaPedido.gridy = 1;
 		panelAltaPedidoBtn.add(lblIDAltaPedido, gbc_lblIDAltaPedido);
@@ -517,7 +518,7 @@ public class UI extends JFrame {
 		lblClienteAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblClienteAltaPedido = new GridBagConstraints();
 		gbc_lblClienteAltaPedido.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteAltaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblClienteAltaPedido.insets = new Insets(0, 10, 5, 5);
 		gbc_lblClienteAltaPedido.gridx = 1;
 		gbc_lblClienteAltaPedido.gridy = 3;
 		panelAltaPedidoBtn.add(lblClienteAltaPedido, gbc_lblClienteAltaPedido);
@@ -559,7 +560,7 @@ public class UI extends JFrame {
 		lblIDConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblIDConsultaPedido = new GridBagConstraints();
 		gbc_lblIDConsultaPedido.anchor = GridBagConstraints.EAST;
-		gbc_lblIDConsultaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIDConsultaPedido.insets = new Insets(0, 10, 5, 5);
 		gbc_lblIDConsultaPedido.gridx = 1;
 		gbc_lblIDConsultaPedido.gridy = 1;
 		panelConsultaPedidoBtn.add(lblIDConsultaPedido, gbc_lblIDConsultaPedido);
@@ -585,7 +586,7 @@ public class UI extends JFrame {
 		lblClienteConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblClienteConsultaPedido = new GridBagConstraints();
 		gbc_lblClienteConsultaPedido.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteConsultaPedido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblClienteConsultaPedido.insets = new Insets(0, 10, 5, 5);
 		gbc_lblClienteConsultaPedido.gridx = 1;
 		gbc_lblClienteConsultaPedido.gridy = 3;
 		panelConsultaPedidoBtn.add(lblClienteConsultaPedido, gbc_lblClienteConsultaPedido);
@@ -616,6 +617,7 @@ public class UI extends JFrame {
 		panelConsultaPedidoBtn.add(scrollPaneConsultaPedido, gbc_scrollPaneConsultaPedido);
 		
 		JTextPane textPaneConsultaPedido = new JTextPane();
+		textPaneConsultaPedido.setEditable(false);
 		textPaneConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPaneConsultaPedido.setViewportView(textPaneConsultaPedido);
 		
@@ -647,7 +649,7 @@ public class UI extends JFrame {
 		lblIDAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblIDAltaArticulo = new GridBagConstraints();
 		gbc_lblIDAltaArticulo.anchor = GridBagConstraints.EAST;
-		gbc_lblIDAltaArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIDAltaArticulo.insets = new Insets(0, 10, 5, 5);
 		gbc_lblIDAltaArticulo.gridx = 1;
 		gbc_lblIDAltaArticulo.gridy = 1;
 		panelAltaArticuloBtn.add(lblIDAltaArticulo, gbc_lblIDAltaArticulo);
@@ -673,7 +675,7 @@ public class UI extends JFrame {
 		lblClienteAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblClienteAltaArticulo = new GridBagConstraints();
 		gbc_lblClienteAltaArticulo.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteAltaArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblClienteAltaArticulo.insets = new Insets(0, 10, 5, 5);
 		gbc_lblClienteAltaArticulo.gridx = 1;
 		gbc_lblClienteAltaArticulo.gridy = 3;
 		panelAltaArticuloBtn.add(lblClienteAltaArticulo, gbc_lblClienteAltaArticulo);
@@ -715,7 +717,7 @@ public class UI extends JFrame {
 		lblIDConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblIDConsultaArticulo = new GridBagConstraints();
 		gbc_lblIDConsultaArticulo.anchor = GridBagConstraints.EAST;
-		gbc_lblIDConsultaArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIDConsultaArticulo.insets = new Insets(0, 10, 5, 5);
 		gbc_lblIDConsultaArticulo.gridx = 1;
 		gbc_lblIDConsultaArticulo.gridy = 1;
 		panelConsultaArticuloBtn.add(lblIDConsultaArticulo, gbc_lblIDConsultaArticulo);
@@ -741,7 +743,7 @@ public class UI extends JFrame {
 		lblClienteConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_lblClienteConsultaArticulo = new GridBagConstraints();
 		gbc_lblClienteConsultaArticulo.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteConsultaArticulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblClienteConsultaArticulo.insets = new Insets(0, 10, 5, 5);
 		gbc_lblClienteConsultaArticulo.gridx = 1;
 		gbc_lblClienteConsultaArticulo.gridy = 3;
 		panelConsultaArticuloBtn.add(lblClienteConsultaArticulo, gbc_lblClienteConsultaArticulo);
@@ -772,6 +774,7 @@ public class UI extends JFrame {
 		panelConsultaArticuloBtn.add(scrollPaneConultaArticulo, gbc_scrollPaneConultaArticulo);
 		
 		JTextPane textPaneConsultaArticulo = new JTextPane();
+		textPaneConsultaArticulo.setEditable(false);
 		textPaneConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPaneConultaArticulo.setViewportView(textPaneConsultaArticulo);
 		
