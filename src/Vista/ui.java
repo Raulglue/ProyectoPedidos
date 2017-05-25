@@ -38,6 +38,7 @@ import javax.swing.JTextPane;
 import javax.swing.JComboBox;
 import java.awt.Label;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class UI extends JFrame {
 	private JPanel contentPane;
@@ -49,6 +50,9 @@ public class UI extends JFrame {
 	private JTextField txtIDConsultaPedido;
 	private JTextField txtIDAltaArticulo;
 	private JTextField txtIDConsultaArticulo;
+	private JTextField txtResultadoConsultaPedido;
+	private JTextField txtResultadoConsultaArticulo;
+	private JTextField txtResultadoConsultaCliente;
 
 	/**
 	 * Launch the application.
@@ -70,6 +74,8 @@ public class UI extends JFrame {
 	 * Create the frame.
 	 */
 	public UI() {
+		setTitle("Base de datos");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UI.class.getResource("/Vista/DatabaseICO.PNG")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -295,9 +301,9 @@ public class UI extends JFrame {
 		JPanel panelAltaClienteBtn = new JPanel();
 		panelAltaCliente.add(panelAltaClienteBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelAltaClienteBtn = new GridBagLayout();
-		gbl_panelAltaClienteBtn.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panelAltaClienteBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelAltaClienteBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelAltaClienteBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelAltaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelAltaClienteBtn.setLayout(gbl_panelAltaClienteBtn);
 		
@@ -311,9 +317,18 @@ public class UI extends JFrame {
 		gbc_lblDatosCliente.gridy = 1;
 		panelAltaClienteBtn.add(lblDatosCliente, gbc_lblDatosCliente);
 		
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setIcon(new ImageIcon(UI.class.getResource("/Vista/ConfirmarICO.PNG")));
+		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
+		gbc_btnConfirmar.insets = new Insets(0, 0, 5, 10);
+		gbc_btnConfirmar.gridx = 5;
+		gbc_btnConfirmar.gridy = 1;
+		panelAltaClienteBtn.add(btnConfirmar, gbc_btnConfirmar);
+		
 		JLabel dummy1 = new JLabel(" ");
 		GridBagConstraints gbc_dummy1 = new GridBagConstraints();
-		gbc_dummy1.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy1.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy1.gridx = 3;
 		gbc_dummy1.gridy = 2;
 		panelAltaClienteBtn.add(dummy1, gbc_dummy1);
@@ -330,6 +345,7 @@ public class UI extends JFrame {
 		txtDNIAltaCliente = new JTextField();
 		txtDNIAltaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtDNIAltaCliente = new GridBagConstraints();
+		gbc_txtDNIAltaCliente.gridwidth = 3;
 		gbc_txtDNIAltaCliente.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtDNIAltaCliente.insets = new Insets(0, 0, 5, 10);
 		gbc_txtDNIAltaCliente.gridx = 3;
@@ -339,7 +355,7 @@ public class UI extends JFrame {
 		
 		JLabel dummy2 = new JLabel(" ");
 		GridBagConstraints gbc_dummy2 = new GridBagConstraints();
-		gbc_dummy2.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy2.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy2.gridx = 3;
 		gbc_dummy2.gridy = 4;
 		panelAltaClienteBtn.add(dummy2, gbc_dummy2);
@@ -356,6 +372,7 @@ public class UI extends JFrame {
 		txtNombreAltaCliente = new JTextField();
 		txtNombreAltaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtNombreAltaCliente = new GridBagConstraints();
+		gbc_txtNombreAltaCliente.gridwidth = 3;
 		gbc_txtNombreAltaCliente.insets = new Insets(0, 0, 5, 10);
 		gbc_txtNombreAltaCliente.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtNombreAltaCliente.gridx = 3;
@@ -365,7 +382,7 @@ public class UI extends JFrame {
 		
 		JLabel dummy3 = new JLabel(" ");
 		GridBagConstraints gbc_dummy3 = new GridBagConstraints();
-		gbc_dummy3.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy3.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy3.gridx = 3;
 		gbc_dummy3.gridy = 6;
 		panelAltaClienteBtn.add(dummy3, gbc_dummy3);
@@ -382,6 +399,7 @@ public class UI extends JFrame {
 		txtDireccionAltaCliente = new JTextField();
 		txtDireccionAltaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtDireccionAltaCliente = new GridBagConstraints();
+		gbc_txtDireccionAltaCliente.gridwidth = 3;
 		gbc_txtDireccionAltaCliente.insets = new Insets(0, 0, 5, 10);
 		gbc_txtNombreAltaCliente.insets = new Insets(0, 0, 5, 10);
 		gbc_txtDireccionAltaCliente.fill = GridBagConstraints.HORIZONTAL;
@@ -393,6 +411,7 @@ public class UI extends JFrame {
 		JLabel dummy4 = new JLabel(" ");
 		dummy4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_dummy4 = new GridBagConstraints();
+		gbc_dummy4.insets = new Insets(0, 0, 0, 5);
 		gbc_dummy4.gridx = 3;
 		gbc_dummy4.gridy = 8;
 		panelAltaClienteBtn.add(dummy4, gbc_dummy4);
@@ -412,7 +431,7 @@ public class UI extends JFrame {
 		gbl_panelConsultaClienteBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelConsultaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 		gbl_panelConsultaClienteBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panelConsultaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_panelConsultaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelConsultaClienteBtn.setLayout(gbl_panelConsultaClienteBtn);
 		
 		JLabel lblDNIConsultaCliente = new JLabel("DNI:");
@@ -427,7 +446,7 @@ public class UI extends JFrame {
 		txtDNIConsultaCliente = new JTextField();
 		txtDNIConsultaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtDNIConsultaCliente = new GridBagConstraints();
-		gbc_txtDNIConsultaCliente.insets = new Insets(0, 0, 5, 5);
+		gbc_txtDNIConsultaCliente.insets = new Insets(0, 0, 5, 10);
 		gbc_txtDNIConsultaCliente.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtDNIConsultaCliente.gridx = 3;
 		gbc_txtDNIConsultaCliente.gridy = 1;
@@ -450,25 +469,17 @@ public class UI extends JFrame {
 		gbc_dummy5.gridy = 2;
 		panelConsultaClienteBtn.add(dummy5, gbc_dummy5);
 		
-		JScrollPane scrollPaneConsultaCliente = new JScrollPane();
-		GridBagConstraints gbc_scrollPaneConsultaCliente = new GridBagConstraints();
-		gbc_scrollPaneConsultaCliente.gridwidth = 3;
-		gbc_scrollPaneConsultaCliente.insets = new Insets(0, 0, 5, 10);
-		gbc_scrollPaneConsultaCliente.fill = GridBagConstraints.BOTH;
-		gbc_scrollPaneConsultaCliente.gridx = 3;
-		gbc_scrollPaneConsultaCliente.gridy = 3;
-		panelConsultaClienteBtn.add(scrollPaneConsultaCliente, gbc_scrollPaneConsultaCliente);
-		
-		JTextPane textPaneConsultaCliente = new JTextPane();
-		textPaneConsultaCliente.setEditable(false);
-		textPaneConsultaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		scrollPaneConsultaCliente.setViewportView(textPaneConsultaCliente);
-		
-		JLabel dummy6 = new JLabel(" ");
-		GridBagConstraints gbc_dummy6 = new GridBagConstraints();
-		gbc_dummy6.gridx = 5;
-		gbc_dummy6.gridy = 4;
-		panelConsultaClienteBtn.add(dummy6, gbc_dummy6);
+		txtResultadoConsultaCliente = new JTextField();
+		txtResultadoConsultaCliente.setEditable(false);
+		GridBagConstraints gbc_txtResultadoConsultaCliente = new GridBagConstraints();
+		gbc_txtResultadoConsultaCliente.gridwidth = 5;
+		gbc_txtResultadoConsultaCliente.anchor = GridBagConstraints.NORTH;
+		gbc_txtResultadoConsultaCliente.insets = new Insets(0, 10, 5, 10);
+		gbc_txtResultadoConsultaCliente.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtResultadoConsultaCliente.gridx = 1;
+		gbc_txtResultadoConsultaCliente.gridy = 3;
+		panelConsultaClienteBtn.add(txtResultadoConsultaCliente, gbc_txtResultadoConsultaCliente);
+		txtResultadoConsultaCliente.setColumns(10);
 		
 		JPanel panelAltaPedido = new JPanel();
 		contentPane.add(panelAltaPedido, "name_109310969146127");
@@ -482,9 +493,9 @@ public class UI extends JFrame {
 		JPanel panelAltaPedidoBtn = new JPanel();
 		panelAltaPedido.add(panelAltaPedidoBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelAltaPedidoBtn = new GridBagLayout();
-		gbl_panelAltaPedidoBtn.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panelAltaPedidoBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaPedidoBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-		gbl_panelAltaPedidoBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelAltaPedidoBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelAltaPedidoBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelAltaPedidoBtn.setLayout(gbl_panelAltaPedidoBtn);
 		
@@ -500,6 +511,7 @@ public class UI extends JFrame {
 		txtIDAltaPedido = new JTextField();
 		txtIDAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtIDAltaPedido = new GridBagConstraints();
+		gbc_txtIDAltaPedido.gridwidth = 3;
 		gbc_txtIDAltaPedido.insets = new Insets(0, 0, 5, 10);
 		gbc_txtIDAltaPedido.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtIDAltaPedido.gridx = 3;
@@ -509,7 +521,7 @@ public class UI extends JFrame {
 		
 		JLabel dummy7 = new JLabel(" ");
 		GridBagConstraints gbc_dummy7 = new GridBagConstraints();
-		gbc_dummy7.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy7.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy7.gridx = 3;
 		gbc_dummy7.gridy = 2;
 		panelAltaPedidoBtn.add(dummy7, gbc_dummy7);
@@ -532,8 +544,18 @@ public class UI extends JFrame {
 		gbc_comboBoxClienteAltaPedido.gridy = 3;
 		panelAltaPedidoBtn.add(comboBoxClienteAltaPedido, gbc_comboBoxClienteAltaPedido);
 		
+		JButton btnAltaPedidoConfirmar = new JButton("Confirmar");
+		btnAltaPedidoConfirmar.setIcon(new ImageIcon(UI.class.getResource("/Vista/ConfirmarICO.PNG")));
+		btnAltaPedidoConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnAltaPedidoConfirmar = new GridBagConstraints();
+		gbc_btnAltaPedidoConfirmar.insets = new Insets(0, 0, 5, 10);
+		gbc_btnAltaPedidoConfirmar.gridx = 5;
+		gbc_btnAltaPedidoConfirmar.gridy = 3;
+		panelAltaPedidoBtn.add(btnAltaPedidoConfirmar, gbc_btnAltaPedidoConfirmar);
+		
 		JLabel dummy8 = new JLabel(" ");
 		GridBagConstraints gbc_dummy8 = new GridBagConstraints();
+		gbc_dummy8.insets = new Insets(0, 0, 0, 5);
 		gbc_dummy8.gridx = 3;
 		gbc_dummy8.gridy = 4;
 		panelAltaPedidoBtn.add(dummy8, gbc_dummy8);
@@ -550,9 +572,9 @@ public class UI extends JFrame {
 		Panel panelConsultaPedidoBtn = new Panel();
 		panelConsultaPedido.add(panelConsultaPedidoBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelConsultaPedidoBtn = new GridBagLayout();
-		gbl_panelConsultaPedidoBtn.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panelConsultaPedidoBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelConsultaPedidoBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelConsultaPedidoBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelConsultaPedidoBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelConsultaPedidoBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		panelConsultaPedidoBtn.setLayout(gbl_panelConsultaPedidoBtn);
 		
@@ -575,57 +597,33 @@ public class UI extends JFrame {
 		panelConsultaPedidoBtn.add(txtIDConsultaPedido, gbc_txtIDConsultaPedido);
 		txtIDConsultaPedido.setColumns(10);
 		
+		JButton btnConsultaPedidoBuscar = new JButton("Buscar");
+		btnConsultaPedidoBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnConsultaPedidoBuscar.setIcon(new ImageIcon(UI.class.getResource("/Vista/BuscarICO.PNG")));
+		GridBagConstraints gbc_btnConsultaPedidoBuscar = new GridBagConstraints();
+		gbc_btnConsultaPedidoBuscar.insets = new Insets(0, 0, 5, 10);
+		gbc_btnConsultaPedidoBuscar.gridx = 5;
+		gbc_btnConsultaPedidoBuscar.gridy = 1;
+		panelConsultaPedidoBtn.add(btnConsultaPedidoBuscar, gbc_btnConsultaPedidoBuscar);
+		
 		JLabel dummy9 = new JLabel(" ");
 		GridBagConstraints gbc_dummy9 = new GridBagConstraints();
-		gbc_dummy9.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy9.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy9.gridx = 3;
 		gbc_dummy9.gridy = 2;
 		panelConsultaPedidoBtn.add(dummy9, gbc_dummy9);
 		
-		JLabel lblClienteConsultaPedido = new JLabel("Cliente:");
-		lblClienteConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_lblClienteConsultaPedido = new GridBagConstraints();
-		gbc_lblClienteConsultaPedido.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteConsultaPedido.insets = new Insets(0, 10, 5, 5);
-		gbc_lblClienteConsultaPedido.gridx = 1;
-		gbc_lblClienteConsultaPedido.gridy = 3;
-		panelConsultaPedidoBtn.add(lblClienteConsultaPedido, gbc_lblClienteConsultaPedido);
-		
-		JComboBox comboBoxConsultaCliente = new JComboBox();
-		comboBoxConsultaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_comboBoxConsultaCliente = new GridBagConstraints();
-		gbc_comboBoxConsultaCliente.insets = new Insets(0, 0, 5, 10);
-		gbc_comboBoxConsultaCliente.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxConsultaCliente.gridx = 3;
-		gbc_comboBoxConsultaCliente.gridy = 3;
-		panelConsultaPedidoBtn.add(comboBoxConsultaCliente, gbc_comboBoxConsultaCliente);
-		
-		JLabel dummy10 = new JLabel(" ");
-		GridBagConstraints gbc_dummy10 = new GridBagConstraints();
-		gbc_dummy10.insets = new Insets(0, 0, 5, 0);
-		gbc_dummy10.gridx = 3;
-		gbc_dummy10.gridy = 4;
-		panelConsultaPedidoBtn.add(dummy10, gbc_dummy10);
-		
-		JScrollPane scrollPaneConsultaPedido = new JScrollPane();
-		GridBagConstraints gbc_scrollPaneConsultaPedido = new GridBagConstraints();
-		gbc_scrollPaneConsultaPedido.gridwidth = 3;
-		gbc_scrollPaneConsultaPedido.insets = new Insets(0, 10, 5, 10);
-		gbc_scrollPaneConsultaPedido.fill = GridBagConstraints.BOTH;
-		gbc_scrollPaneConsultaPedido.gridx = 1;
-		gbc_scrollPaneConsultaPedido.gridy = 5;
-		panelConsultaPedidoBtn.add(scrollPaneConsultaPedido, gbc_scrollPaneConsultaPedido);
-		
-		JTextPane textPaneConsultaPedido = new JTextPane();
-		textPaneConsultaPedido.setEditable(false);
-		textPaneConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		scrollPaneConsultaPedido.setViewportView(textPaneConsultaPedido);
-		
-		JLabel dummy11 = new JLabel(" ");
-		GridBagConstraints gbc_dummy11 = new GridBagConstraints();
-		gbc_dummy11.gridx = 3;
-		gbc_dummy11.gridy = 6;
-		panelConsultaPedidoBtn.add(dummy11, gbc_dummy11);
+		txtResultadoConsultaPedido = new JTextField();
+		txtResultadoConsultaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtResultadoConsultaPedido.setEditable(false);
+		GridBagConstraints gbc_txtResultadoConsultaPedido = new GridBagConstraints();
+		gbc_txtResultadoConsultaPedido.gridwidth = 5;
+		gbc_txtResultadoConsultaPedido.insets = new Insets(0, 10, 5, 10);
+		gbc_txtResultadoConsultaPedido.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtResultadoConsultaPedido.gridx = 1;
+		gbc_txtResultadoConsultaPedido.gridy = 3;
+		panelConsultaPedidoBtn.add(txtResultadoConsultaPedido, gbc_txtResultadoConsultaPedido);
+		txtResultadoConsultaPedido.setColumns(10);
 		
 		JPanel panelAltaArticulo = new JPanel();
 		contentPane.add(panelAltaArticulo, "name_109314960534486");
@@ -639,9 +637,9 @@ public class UI extends JFrame {
 		Panel panelAltaArticuloBtn = new Panel();
 		panelAltaArticulo.add(panelAltaArticuloBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelAltaArticuloBtn = new GridBagLayout();
-		gbl_panelAltaArticuloBtn.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panelAltaArticuloBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaArticuloBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
-		gbl_panelAltaArticuloBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelAltaArticuloBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelAltaArticuloBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelAltaArticuloBtn.setLayout(gbl_panelAltaArticuloBtn);
 		
@@ -657,6 +655,7 @@ public class UI extends JFrame {
 		txtIDAltaArticulo = new JTextField();
 		txtIDAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtIDAltaArticulo = new GridBagConstraints();
+		gbc_txtIDAltaArticulo.gridwidth = 3;
 		gbc_txtIDAltaArticulo.insets = new Insets(0, 0, 5, 10);
 		gbc_txtIDAltaArticulo.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtIDAltaArticulo.gridx = 3;
@@ -666,7 +665,7 @@ public class UI extends JFrame {
 		
 		JLabel dummy12 = new JLabel(" ");
 		GridBagConstraints gbc_dummy12 = new GridBagConstraints();
-		gbc_dummy12.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy12.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy12.gridx = 3;
 		gbc_dummy12.gridy = 2;
 		panelAltaArticuloBtn.add(dummy12, gbc_dummy12);
@@ -689,8 +688,18 @@ public class UI extends JFrame {
 		gbc_comboBoxAltaArticulo.gridy = 3;
 		panelAltaArticuloBtn.add(comboBoxAltaArticulo, gbc_comboBoxAltaArticulo);
 		
+		JButton btnAltaArticuloConfirmar = new JButton("Confirmar");
+		btnAltaArticuloConfirmar.setIcon(new ImageIcon(UI.class.getResource("/Vista/ConfirmarICO.PNG")));
+		btnAltaArticuloConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnAltaArticuloConfirmar = new GridBagConstraints();
+		gbc_btnAltaArticuloConfirmar.insets = new Insets(0, 0, 5, 10);
+		gbc_btnAltaArticuloConfirmar.gridx = 5;
+		gbc_btnAltaArticuloConfirmar.gridy = 3;
+		panelAltaArticuloBtn.add(btnAltaArticuloConfirmar, gbc_btnAltaArticuloConfirmar);
+		
 		JLabel dummy13 = new JLabel(" ");
 		GridBagConstraints gbc_dummy13 = new GridBagConstraints();
+		gbc_dummy13.insets = new Insets(0, 0, 0, 5);
 		gbc_dummy13.gridx = 3;
 		gbc_dummy13.gridy = 4;
 		panelAltaArticuloBtn.add(dummy13, gbc_dummy13);
@@ -707,9 +716,9 @@ public class UI extends JFrame {
 		JPanel panelConsultaArticuloBtn = new JPanel();
 		panelConsultaArticulo.add(panelConsultaArticuloBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelConsultaArticuloBtn = new GridBagLayout();
-		gbl_panelConsultaArticuloBtn.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panelConsultaArticuloBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panelConsultaArticuloBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelConsultaArticuloBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelConsultaArticuloBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panelConsultaArticuloBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		panelConsultaArticuloBtn.setLayout(gbl_panelConsultaArticuloBtn);
 		
@@ -732,57 +741,33 @@ public class UI extends JFrame {
 		panelConsultaArticuloBtn.add(txtIDConsultaArticulo, gbc_txtIDConsultaArticulo);
 		txtIDConsultaArticulo.setColumns(10);
 		
+		JButton btnConsultaArticuloBuscar = new JButton("Buscar");
+		btnConsultaArticuloBuscar.setIcon(new ImageIcon(UI.class.getResource("/Vista/BuscarICO.PNG")));
+		btnConsultaArticuloBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnConsultaArticuloBuscar = new GridBagConstraints();
+		gbc_btnConsultaArticuloBuscar.insets = new Insets(0, 0, 5, 10);
+		gbc_btnConsultaArticuloBuscar.gridx = 5;
+		gbc_btnConsultaArticuloBuscar.gridy = 1;
+		panelConsultaArticuloBtn.add(btnConsultaArticuloBuscar, gbc_btnConsultaArticuloBuscar);
+		
 		JLabel dummy14 = new JLabel(" ");
 		GridBagConstraints gbc_dummy14 = new GridBagConstraints();
-		gbc_dummy14.insets = new Insets(0, 0, 5, 0);
+		gbc_dummy14.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy14.gridx = 3;
 		gbc_dummy14.gridy = 2;
 		panelConsultaArticuloBtn.add(dummy14, gbc_dummy14);
 		
-		JLabel lblClienteConsultaArticulo = new JLabel("Cliente:");
-		lblClienteConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_lblClienteConsultaArticulo = new GridBagConstraints();
-		gbc_lblClienteConsultaArticulo.anchor = GridBagConstraints.EAST;
-		gbc_lblClienteConsultaArticulo.insets = new Insets(0, 10, 5, 5);
-		gbc_lblClienteConsultaArticulo.gridx = 1;
-		gbc_lblClienteConsultaArticulo.gridy = 3;
-		panelConsultaArticuloBtn.add(lblClienteConsultaArticulo, gbc_lblClienteConsultaArticulo);
-		
-		JComboBox comboBoxClienteConsultaArticulo = new JComboBox();
-		comboBoxClienteConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		GridBagConstraints gbc_comboBoxClienteConsultaArticulo = new GridBagConstraints();
-		gbc_comboBoxClienteConsultaArticulo.insets = new Insets(0, 0, 5, 10);
-		gbc_comboBoxClienteConsultaArticulo.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxClienteConsultaArticulo.gridx = 3;
-		gbc_comboBoxClienteConsultaArticulo.gridy = 3;
-		panelConsultaArticuloBtn.add(comboBoxClienteConsultaArticulo, gbc_comboBoxClienteConsultaArticulo);
-		
-		JLabel dummy15 = new JLabel(" ");
-		GridBagConstraints gbc_dummy15 = new GridBagConstraints();
-		gbc_dummy15.insets = new Insets(0, 0, 5, 0);
-		gbc_dummy15.gridx = 3;
-		gbc_dummy15.gridy = 4;
-		panelConsultaArticuloBtn.add(dummy15, gbc_dummy15);
-		
-		JScrollPane scrollPaneConultaArticulo = new JScrollPane();
-		GridBagConstraints gbc_scrollPaneConultaArticulo = new GridBagConstraints();
-		gbc_scrollPaneConultaArticulo.gridwidth = 3;
-		gbc_scrollPaneConultaArticulo.insets = new Insets(0, 10, 5, 10);
-		gbc_scrollPaneConultaArticulo.fill = GridBagConstraints.BOTH;
-		gbc_scrollPaneConultaArticulo.gridx = 1;
-		gbc_scrollPaneConultaArticulo.gridy = 5;
-		panelConsultaArticuloBtn.add(scrollPaneConultaArticulo, gbc_scrollPaneConultaArticulo);
-		
-		JTextPane textPaneConsultaArticulo = new JTextPane();
-		textPaneConsultaArticulo.setEditable(false);
-		textPaneConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		scrollPaneConultaArticulo.setViewportView(textPaneConsultaArticulo);
-		
-		JLabel dummy16 = new JLabel(" ");
-		GridBagConstraints gbc_dummy16 = new GridBagConstraints();
-		gbc_dummy16.gridx = 3;
-		gbc_dummy16.gridy = 6;
-		panelConsultaArticuloBtn.add(dummy16, gbc_dummy16);
+		txtResultadoConsultaArticulo = new JTextField();
+		txtResultadoConsultaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtResultadoConsultaArticulo.setEditable(false);
+		GridBagConstraints gbc_txtResultadoConsultaArticulo = new GridBagConstraints();
+		gbc_txtResultadoConsultaArticulo.gridwidth = 5;
+		gbc_txtResultadoConsultaArticulo.insets = new Insets(0, 10, 5, 10);
+		gbc_txtResultadoConsultaArticulo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtResultadoConsultaArticulo.gridx = 1;
+		gbc_txtResultadoConsultaArticulo.gridy = 3;
+		panelConsultaArticuloBtn.add(txtResultadoConsultaArticulo, gbc_txtResultadoConsultaArticulo);
+		txtResultadoConsultaArticulo.setColumns(10);
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
