@@ -39,6 +39,7 @@ import javax.swing.JComboBox;
 import java.awt.Label;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
+import java.awt.Dimension;
 
 public class UI extends JFrame {
 	private JPanel contentPane;
@@ -57,23 +58,13 @@ public class UI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI frame = new UI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
 	public UI() {
+		setMinimumSize(new Dimension(200, 200));
 		setTitle("Base de datos");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(UI.class.getResource("/Vista/DatabaseICO.PNG")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
