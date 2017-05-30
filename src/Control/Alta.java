@@ -15,6 +15,7 @@ public class Alta implements IAltas{
 	
 
 	@Override
+
 	public void altaCliente(String dni, String nombre, String direccion, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Cliente MiCliente = new Cliente(dni, nombre, direccion);
@@ -22,15 +23,20 @@ public class Alta implements IAltas{
 		listaCliente.add(MiCliente);
 		guardar.escribir(listaCliente);
 	
+
+	
 	}
 	@Override
+
 	public void altaPedido(Date id, Cliente cliente, ArrayList linea, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Pedido MiPedido = new Pedido(id, cliente);
 		
+
 	}
 
 	@Override
+
 	public void altaArticulo(String id, String nombre, float precio, String descripcion, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Articulo MiArticulo= new Articulo(id, nombre, precio, descripcion);
@@ -38,6 +44,7 @@ public class Alta implements IAltas{
 		listaArticulo.add(MiArticulo);
 		guardar.escribir(listaArticulo);
 		
+
 	}
 
 
