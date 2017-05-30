@@ -9,7 +9,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import Control.adaptador.GestorUnificado;
 import Utiles.Constantes;
+import Utiles.Tipo;
 
 public class DAO {
 	ObjectInputStream adaptadorLectura = null;
@@ -39,7 +41,7 @@ public class DAO {
 			}
 			// este flujo es de sobreescritura
 			// flujoW = new FileOutputStream(archivo);
-			// este añade
+			// este aÃ±ade
 			flujoW = new FileOutputStream(archivo, !unico);
 			if (unico || inicial)
 				adaptadorW = new ObjectOutputStream(flujoW);
@@ -102,4 +104,36 @@ public class DAO {
 		return socio;
 	}
 
+	public void cerrar() {
+		try {
+			adaptadorLectura.close();
+		} catch (IOException e) {
+
+		}
+
+	}
+
+	public boolean borrar(int encontrado, String ruta, boolean lista) {
+		File antiguo = new File(ruta);
+		File nuevo = new File("respaldo.bak");
+		Object obtenido = leer(ruta, lista);
+		int contador = 0;
+		while (obtenido != null) {
+			// antews de escribir hay que comprobar que sea el elemento
+			// concreto
+			// que indica el elemento encontrado
+			if (encontrado == contador)
+				// con esta orden salto un objeto y no lo grabo
+				obtenido = leer(ruta, lista);
+			if (obtenido != null)
+				grabar(obtenido, ruta, lista);
+			contador++;
+			obtenido = leer(ruta, lista);
+		}
+		// tendriamos que renombrar el archivo nuevo y borrar el antiguo
+		//aqui borramos el ficheor fisico no el objeto file que se ha creado 
+		//con una ruta a un elemento que puede existir o no
+		antiguo.delete();
+		return nuevo.renameTo(antiguo);
+	}
 }
