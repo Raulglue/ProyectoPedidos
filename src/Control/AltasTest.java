@@ -19,6 +19,7 @@ Alta alta;
 	@Test
 	public void testAltaCliente() {
 		alta.altaCliente("1", "Juan", "Almendralejo", Tipo.cliente);
+		//assertTrue(false);
 		//TODO assertrue buscar el cliente en el archivo
 	}
 
