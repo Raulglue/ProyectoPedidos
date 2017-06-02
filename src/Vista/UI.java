@@ -47,14 +47,14 @@ public class UI extends JFrame {
 	protected JTextField txtDNIAltaCliente;
 	protected JTextField txtNombreAltaCliente;
 	protected JTextField txtDireccionAltaCliente;
-	private JTextField txtDNIConsultaCliente;
+	protected JTextField txtDNIConsultaCliente;
 	protected JTextField txtIDAltaPedido;
-	private JTextField txtIDConsultaPedido;
+	protected JTextField txtIDConsultaPedido;
 	protected JTextField txtIDAltaArticulo;
-	private JTextField txtIDConsultaArticulo;
-	private JTextField txtResultadoConsultaPedido;
-	private JTextField txtResultadoConsultaArticulo;
-	private JTextField txtResultadoConsultaCliente;
+	protected JTextField txtIDConsultaArticulo;
+	protected JTextField txtResultadoConsultaPedido;
+	protected JTextField txtResultadoConsultaArticulo;
+	protected JTextField txtResultadoConsultaCliente;
 	protected JButton btnConsultaArticuloBuscar;
 	protected JButton btnAltaArticuloConfirmar;
 	protected JComboBox comboBoxClienteAltaPedido;
@@ -68,6 +68,9 @@ public class UI extends JFrame {
 	protected JButton btnAltaPedidoConfirmar;
 	protected JTextField txtPrecioAltaArticulo;
 	protected JTextPane textPaneDescripcionAltaArticulo;
+	protected JTextField txtIDBajaArticulo;
+	protected JTextField txtIDBajaPedido;
+	protected JTextField txtDNIBajaCliente;
 
 	/**
 	 * Launch the application.
@@ -517,7 +520,7 @@ public class UI extends JFrame {
 		gbc_lblDni.gridy = 1;
 		panelBajaClienteBtn.add(lblDni, gbc_lblDni);
 		
-		JTextField txtDNIBajaCliente = new JTextField();
+		txtDNIBajaCliente = new JTextField();
 		txtDNIBajaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtDNIBajaCliente = new GridBagConstraints();
 		gbc_txtDNIBajaCliente.insets = new Insets(0, 0, 5, 5);
@@ -707,7 +710,7 @@ public class UI extends JFrame {
 		gbc_lblIDBajaPedido.gridy = 1;
 		panelBajaPedidoBtn.add(lblIDBajaPedido, gbc_lblIDBajaPedido);
 		
-		JTextField txtIDBajaPedido = new JTextField();
+		txtIDBajaPedido = new JTextField();
 		txtIDBajaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtIDBajaPedido = new GridBagConstraints();
 		gbc_txtIDBajaPedido.insets = new Insets(0, 0, 5, 5);
@@ -939,7 +942,7 @@ public class UI extends JFrame {
 		gbc_lblIDBajaArticulo.gridy = 1;
 		panelBajaArticuloBtn.add(lblIDBajaArticulo, gbc_lblIDBajaArticulo);
 		
-		JTextField txtIDBajaArticulo = new JTextField();
+		txtIDBajaArticulo = new JTextField();
 		txtIDBajaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtIDBajaArticulo = new GridBagConstraints();
 		gbc_txtIDBajaArticulo.insets = new Insets(0, 0, 5, 5);

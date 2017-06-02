@@ -29,7 +29,7 @@ public class ParaUI extends UI {
 		
 		btnAltaPedidoConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				altas.altaPedido(txtIDAltaPedido, ComboBoxClienteAltaPedido, linea, Tipo.pedido);
+				altas.altaPedido(txtIDAltaPedido, comboBoxClienteAltaPedido, linea, Tipo.pedido);
 			}
 			
 		});
@@ -42,6 +42,62 @@ public class ParaUI extends UI {
 		
 		
 	}
+	
+	IBajas bajas;
+	
+	public ParaUI(IBajas bajas) {
+		super();
+		this.bajas=bajas;
+		btnBajaClienteConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				bajas.bajaCliente(txtDNIBajaCliente, Tipo.cliente);
+			}
+		});
+				
+		btnBajaPedidoConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				bajas.bajaPedido(txtIDBajaPedido, Tipo.pedido);
+			}
+			
+		});
+		
+		btnBajaArticuloConfirmar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				bajas.bajaArticulo(txtIDBajaArticulo, Tipo.articulo);
+			}
+		});
+		
+				
+			
+	}
+	
+	IConsultas consultas;
 
+	public ParaUI(IConsultas consultas) {
+		super();
+		this.consultas=consultas;
+		btnConsultaClienteBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				consultas.consultaCliente(txtDNIConsultaCliente, Tipo.cliente);
+			}
+		});
+				
+		btnConsultaPedidoBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				consultas.consultaPedido(txtIDConsultaPedido, Tipo.pedido);
+			}
+			
+		});
+		
+		btnConsultaArticuloBuscar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				consultas.consultaArticulo(txtIDConsultaArticulo, Tipo.articulo);
+			}
+		});
+		
+				
+			
+	}
+	
 	
 }
