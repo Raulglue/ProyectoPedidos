@@ -22,7 +22,7 @@ public class ParaUI extends UI {
 				// TODO Apéndice de método generado automáticamente
 				//ya esta validado
 				//tiene que haber una clase que implement IAltas
-				altas.altaCliente(txtDNIAltaCliente, txtNombreAltaCliente, txtDireccionAltaCliente, Tipo.cliente);
+				altas.altaCliente(txtDNIAltaCliente.getText(), txtNombreAltaCliente.getText(), txtDireccionAltaCliente.getText(), Tipo.cliente);
 				
 			}
 		});
@@ -36,7 +36,7 @@ public class ParaUI extends UI {
 		
 		btnAltaArticuloConfirmar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				altas.altaArticulo(txtIDAltaArticulo, txtNombreAltaArticulo, txtPrecioAltaArticulo, textPaneDescripcionAltaArticulo, Tipo.articulo);
+				altas.altaArticulo(txtIDAltaArticulo.getText(), txtNombreAltaArticulo.getText(), txtPrecioAltaArticulo, textPaneDescripcionAltaArticulo.getText(), Tipo.articulo);
 			}
 		});
 		
