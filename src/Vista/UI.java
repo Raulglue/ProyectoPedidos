@@ -709,13 +709,14 @@ public class UI extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null, null, null},
 			},
 			new String[] {
-					"Art\u00EDculo", "Cantidad", "Precio"
+				"N\u00BA linea", "Art\u00EDculo", "Cantidad", "Precio"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false
+				false, true, true, true
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
