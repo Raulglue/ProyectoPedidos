@@ -25,6 +25,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
@@ -43,13 +44,13 @@ import java.awt.Toolkit;
 
 public class UI extends JFrame {
 	private JPanel contentPane;
-	private JTextField txtDNIAltaCliente;
-	private JTextField txtNombreAltaCliente;
-	private JTextField txtDireccionAltaCliente;
+	protected JTextField txtDNIAltaCliente;
+	protected JTextField txtNombreAltaCliente;
+	protected JTextField txtDireccionAltaCliente;
 	private JTextField txtDNIConsultaCliente;
-	private JTextField txtIDAltaPedido;
+	protected JTextField txtIDAltaPedido;
 	private JTextField txtIDConsultaPedido;
-	private JTextField txtIDAltaArticulo;
+	protected JTextField txtIDAltaArticulo;
 	private JTextField txtIDConsultaArticulo;
 	private JTextField txtResultadoConsultaPedido;
 	private JTextField txtResultadoConsultaArticulo;
@@ -58,14 +59,15 @@ public class UI extends JFrame {
 	protected JButton btnAltaArticuloConfirmar;
 	protected JComboBox comboBoxClienteAltaPedido;
 	protected JButton btnConsultaClienteBuscar;
-	private JTextField txtNombreAltaArticulo;
-	private JTextField txtPrecioAltaArticulo;
+	protected JTextField txtNombreAltaArticulo;
 	protected JButton btnBajaClienteConfirmar;
 	protected JButton btnBajaArticuloConfirmar;
 	protected JButton btnConsultaPedidoBuscar;
 	protected JButton btnBajaPedidoConfirmar;
 	protected JButton btnAltaClienteConfirmar;
 	protected JButton btnAltaPedidoConfirmar;
+	protected JTextField txtPrecioAltaArticulo;
+	protected JTextPane textPaneDescripcionAltaArticulo;
 
 	/**
 	 * Launch the application.
@@ -870,7 +872,7 @@ public class UI extends JFrame {
 		gbc_scrollPaneDescripcionAltaArticulo.gridy = 3;
 		panelAltaArticuloBtn.add(scrollPaneDescripcionAltaArticulo, gbc_scrollPaneDescripcionAltaArticulo);
 		
-		JTextPane textPaneDescripcionAltaArticulo = new JTextPane();
+		textPaneDescripcionAltaArticulo = new JTextPane();
 		textPaneDescripcionAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPaneDescripcionAltaArticulo.setViewportView(textPaneDescripcionAltaArticulo);
 		

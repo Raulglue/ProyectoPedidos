@@ -22,21 +22,21 @@ public class ParaUI extends UI {
 				// TODO Apéndice de método generado automáticamente
 				//ya esta validado
 				//tiene que haber una clase que implement IAltas
-				altas.altaCliente(txtDNIAltaCliente, txtNombreAltaCliente, txtDireccionAltaCliente, tipo);
+				altas.altaCliente(txtDNIAltaCliente, txtNombreAltaCliente, txtDireccionAltaCliente, Tipo.cliente);
 				
 			}
 		});
 		
 		btnAltaPedidoConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				altas.altaPedido(txtIDAltaPedido, ComboBoxClienteAltaPedido, linea, tipo);
+				altas.altaPedido(txtIDAltaPedido, ComboBoxClienteAltaPedido, linea, Tipo.pedido);
 			}
 			
 		});
 		
 		btnAltaArticuloConfirmar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				altas.altaArticulo(txtIDAltaArticulo, txtNombreAltaArticulo, txtPrecioAltaArticulo, textPaneDescripcionAltaArticulo, tipo);
+				altas.altaArticulo(txtIDAltaArticulo, txtNombreAltaArticulo, txtPrecioAltaArticulo, textPaneDescripcionAltaArticulo, Tipo.articulo);
 			}
 		});
 		
