@@ -19,7 +19,7 @@ public class Alta implements IAltas{
 	public boolean altaCliente(String dni, String nombre, String direccion, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Cliente MiCliente = new Cliente(dni, nombre, direccion);
-		ArrayList<Cliente> listaCliente = new ArrayList<>();
+		ArrayList listaCliente = new ArrayList();
 		listaCliente.add(MiCliente);
 		return guardar.escribir(listaCliente);
 	
