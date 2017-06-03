@@ -716,7 +716,7 @@ public class UI extends JFrame {
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, true, true, true
+				false, true, true, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];

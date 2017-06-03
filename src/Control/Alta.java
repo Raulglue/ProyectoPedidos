@@ -12,14 +12,15 @@ import Modelo.Pedido;
 import Utiles.Tipo;
 
 public class Alta implements IAltas{
-	
-
+	ArrayList listaCliente;
+	Consulta consulta;
 	@Override
 
 	public boolean altaCliente(String dni, String nombre, String direccion, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Cliente MiCliente = new Cliente(dni, nombre, direccion);
-		ArrayList listaCliente = new ArrayList();
+		listaCliente = consulta.consultaCliente(dni, tipo);
+		
 		listaCliente.add(MiCliente);
 		return guardar.escribir(listaCliente);
 	
@@ -28,7 +29,7 @@ public class Alta implements IAltas{
 	}
 	@Override
 
-	public boolean altaPedido(Date id, Cliente cliente, ArrayList linea, Tipo tipo) {
+	public boolean altaPedido(String id, Cliente cliente, ArrayList linea, Tipo tipo) {
 		GestorUnificado guardar = new GestorUnificado(tipo);
 		Pedido MiPedido = new Pedido(id, cliente, linea);
 		return guardar.escribir(MiPedido);

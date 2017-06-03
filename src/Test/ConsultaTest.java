@@ -24,8 +24,14 @@ public class ConsultaTest {
 		assertTrue(alta.altaCliente(buscarC.getDni(), buscarC.getNombre(), buscarC.getDireccion(), Tipo.cliente));
 		Cliente buscado= consulta.consultaCliente(buscarC.getDni(), Tipo.cliente);
 		buscado.equals(buscarC);
+		
 	}
 
+
+
+	
+	
+	
 	@Test
 	public void testConsultaPedido() {
 		Date fecha= new Date(13/05/2017);
