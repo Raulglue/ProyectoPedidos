@@ -7,6 +7,7 @@ import Utiles.Tipo;
 
 import java.io.File;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import Control.interfaz.IConsultas;
 import Modelo.Articulo;
@@ -17,7 +18,7 @@ import Utiles.Tipo;
 public class Consulta implements IConsultas {
 
 	@Override
-	public Cliente consultaCliente(String dni, Tipo tipo) {
+	public ArrayList consultaCliente(String dni, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
 		Cliente cliente = null;
 		File file = new File(tipo.getRuta());

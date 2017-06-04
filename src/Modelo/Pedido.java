@@ -5,12 +5,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Pedido {
-	private Date id;
+	private String id;
 	private Cliente cliente;
 	private ArrayList lineaPedido;
 	
 	
-	public Pedido(Date id, Cliente cliente, ArrayList lineaPedido) {
+	public Pedido(String id, Cliente cliente, ArrayList lineaPedido) {
 		super();
 		this.id = id;
 		this.cliente = cliente;
@@ -25,12 +25,14 @@ public class Pedido {
 
 
 
-	public Date getId() {
+	public String getId() {
 		return id;
 	}
 	public Cliente getCliente() {
 		return cliente;
 	}
+
+
 
 
 
@@ -52,6 +54,8 @@ public class Pedido {
 	}
 
 
+
+	
 
 
 
