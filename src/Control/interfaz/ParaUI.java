@@ -36,7 +36,7 @@ public class ParaUI extends UI {
 		
 		btnAltaArticuloConfirmar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				altas.altaArticulo(txtIDAltaArticulo.getText(), txtNombreAltaArticulo.getText(), txtPrecioAltaArticulo, textPaneDescripcionAltaArticulo.getText(), Tipo.articulo);
+				altas.altaArticulo(txtIDAltaArticulo.getText(), txtNombreAltaArticulo.getText(), txtPrecioAltaArticulo.getText(), textPaneDescripcionAltaArticulo.getText(), Tipo.articulo);
 			}
 		});
 		
