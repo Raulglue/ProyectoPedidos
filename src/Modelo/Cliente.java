@@ -33,6 +33,6 @@ public class Cliente implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		return this.dni == ((Cliente) obj).dni;
+		return this.dni.equals(((Cliente) obj).dni);
 	}
 }

@@ -1,10 +1,11 @@
 package Modelo;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Pedido {
+public class Pedido implements Serializable{
 	private String id;
 	private Cliente cliente;
 	private ArrayList lineaPedido;
