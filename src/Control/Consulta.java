@@ -1,6 +1,5 @@
 package Control;
 
-
 import Control.adaptador.GestorUnificado;
 import Modelo.Cliente;
 import Utiles.Tipo;
@@ -18,15 +17,18 @@ import Utiles.Tipo;
 public class Consulta implements IConsultas {
 
 	@Override
-	public ArrayList consultaCliente(String dni, Tipo tipo) {
+	public Cliente consultaCliente(String dni, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
-		Cliente cliente = null;
+		Cliente cliente = new Cliente(dni, "JUAN", "MERIDA");
 		File file = new File(tipo.getRuta());
-		if(file.exists()){
-		cliente = (Cliente) buscar.obtener();
+		if (file.exists()) {
+			ArrayList listaCliente = (ArrayList) buscar.obtener();
+			if (listaCliente.contains(cliente)) {
+
 			}
-		
-			return cliente;
+
+		}
+		return null;
 	}
 
 	@Override
@@ -46,11 +48,10 @@ public class Consulta implements IConsultas {
 		GestorUnificado buscar = new GestorUnificado(tipo);
 		Articulo articulo = null;
 		File file = new File(tipo.getRuta());
-		if(file.exists()){
-		articulo = (Articulo) buscar.obtener();
-			}
+		if (file.exists()) {
+			articulo = (Articulo) buscar.obtener();
+		}
 		return articulo;
 	}
-
 
 }
