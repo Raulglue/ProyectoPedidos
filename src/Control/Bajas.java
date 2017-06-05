@@ -28,7 +28,7 @@ public class Bajas implements IBajas {
 	}
 
 	@Override
-	public boolean bajaPedido(Date id, Tipo tipo) {
+	public boolean bajaPedido(String id, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
 		Pedido pedido = null;
 		File file = new File(tipo.getRuta());

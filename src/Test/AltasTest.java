@@ -39,10 +39,13 @@ Alta alta = new Alta();
 	public void testAltaArticulo() { 
 		GestorUnificado gestor= new GestorUnificado(Tipo.articuloTest);
 		Articulo articulo = new Articulo("3", "Television de tubo", 500f,"Television vintage");
+		Articulo articuloDos = new Articulo("888", "xxxxxxxxx", 500f,"yyyyyyyy");
 		gestor.borraArchivo();
 		assertTrue(alta.altaArticulo(articulo.getId(), articulo.getNombre(), articulo.getPrecio(), articulo.getDescripcion(), Tipo.articuloTest));
+		assertTrue(alta.altaArticulo(articuloDos.getId(), articuloDos.getNombre(), articuloDos.getPrecio(), articuloDos.getDescripcion(), Tipo.articuloTest));
 		ArrayList listaArticulo = (ArrayList) gestor.obtener();
 		assertTrue(listaArticulo.contains(articulo));
+		assertTrue(listaArticulo.contains(articuloDos));
 		
 	}
 

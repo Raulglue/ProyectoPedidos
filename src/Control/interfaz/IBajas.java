@@ -8,6 +8,6 @@ import Utiles.Tipo;
 
 public interface IBajas {
 	public boolean bajaCliente(String dni, Tipo tipo);
-	public boolean bajaPedido(Date id, Tipo tipo);
+	public boolean bajaPedido(String id, Tipo tipo);
 	public boolean bajaArticulo(String id, Tipo tipo);
 }

@@ -28,6 +28,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JSeparator;
@@ -45,7 +46,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class UI extends JFrame {
-	private JPanel contentPane;
+	protected JPanel contentPane;
 	protected JTextField txtDNIAltaCliente;
 	protected JTextField txtNombreAltaCliente;
 	protected JTextField txtDireccionAltaCliente;
@@ -74,6 +75,7 @@ public class UI extends JFrame {
 	protected JTextField txtIDBajaPedido;
 	protected JTextField txtDNIBajaCliente;
 	private JTable table;
+	protected JButton btnAltaArticulo;
 
 	/**
 	 * Launch the application.
@@ -330,13 +332,14 @@ public class UI extends JFrame {
 		gbc_lblArticulo.gridy = 5;
 		panel.add(lblArticulo, gbc_lblArticulo);
 		
-		JButton btnAltaArticulo = new JButton("Dar de alta art\u00EDculo");
-		btnAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAltaArticulo = new JButton("Dar de alta art\u00EDculo");
 		btnAltaArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				((CardLayout)contentPane.getLayout()).show(contentPane, "name_109314960534486");
 			}
 		});
+		btnAltaArticulo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
 		GridBagConstraints gbc_btnAltaArticulo = new GridBagConstraints();
 		gbc_btnAltaArticulo.insets = new Insets(0, 0, 0, 5);
 		gbc_btnAltaArticulo.gridx = 3;

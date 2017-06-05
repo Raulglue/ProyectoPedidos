@@ -8,12 +8,14 @@ public class Articulo implements Serializable{
 	private float precio;
 	private String descripcion;
 
+
+
 	public Articulo(String id, String nombre, float precio, String descripcion) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.descripcion = descripcion;
-		
 	}
 
 	public String getId() {
@@ -32,7 +34,7 @@ public class Articulo implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		
-		return this.id == ((Articulo) obj).id;
+		return this.id.equals(((Articulo) obj).id);
 
 	}
 

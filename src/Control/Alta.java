@@ -30,11 +30,9 @@ public class Alta implements IAltas {
 		} else if (!listaCliente.contains(MiCliente)) {
 			listaCliente.add(MiCliente);
 			return guardar.insertar(listaCliente);
-		
-	}
+		}
 		return false;
 	}
-	
 
 	@Override
 
@@ -42,17 +40,21 @@ public class Alta implements IAltas {
 		gestor guardar = new gestor(tipo);
 		GestorUnificado unif = new GestorUnificado(tipo);
 		Articulo MiArticulo = new Articulo(id, nombre, precio, descripcion);
-		ArrayList listaArticulo =  (ArrayList) unif.obtener();
-		if(listaArticulo ==null){
+		ArrayList listaArticulo = (ArrayList) unif.obtener();
+		if (listaArticulo == null) {
 			listaArticulo = new ArrayList();
 			if (!listaArticulo.contains(MiArticulo)) {
 				listaArticulo.add(MiArticulo);
 				return guardar.insertar(listaArticulo);
 			}
+		} else if(!listaArticulo.contains(MiArticulo)){
+			listaArticulo.add(MiArticulo);
+			return guardar.insertar(listaArticulo);
 		}
+
 		return false;
 	}
-	
+
 	@Override
 
 	public boolean altaPedido(String id, Cliente cliente, ArrayList linea, Tipo tipo) {
