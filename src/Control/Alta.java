@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Control.adaptador.GestorUnificado;
 import Control.interfaz.IAltas;
+import Control.logica.Gestor;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.Pedido;
@@ -16,18 +17,19 @@ public class Alta implements IAltas {
 	@Override
 
 	public boolean altaCliente(String dni, String nombre, String direccion, Tipo tipo) {
-		GestorUnificado guardar = new GestorUnificado(tipo);
+		gestor guardar = new gestor(tipo);
+		GestorUnificado unif = new GestorUnificado(tipo);
 		Cliente MiCliente = new Cliente(dni, nombre, direccion);
-		ArrayList listaCliente = (ArrayList) guardar.obtener();
+		ArrayList listaCliente = (ArrayList) unif.obtener();
 		if (listaCliente == null) {
 			listaCliente = new ArrayList();
 			if (!listaCliente.contains(MiCliente)) {
 				listaCliente.add(MiCliente);
-				return guardar.escribir(listaCliente);
+				return guardar.insertar(listaCliente);
 			}
 		} else if (!listaCliente.contains(MiCliente)) {
 			listaCliente.add(MiCliente);
-			return guardar.escribir(listaCliente);
+			return guardar.insertar(listaCliente);
 		
 	}
 		return false;
