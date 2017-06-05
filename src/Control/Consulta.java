@@ -18,13 +18,15 @@ public class Consulta implements IConsultas {
 
 	@Override
 	public Cliente consultaCliente(String dni, Tipo tipo) {
-		GestorUnificado buscar = new GestorUnificado(tipo);
+		gestor guardar = new gestor(tipo);
+		GestorUnificado unif = new GestorUnificado(tipo);
 		Cliente cliente = new Cliente(dni, "JUAN", "MERIDA");
 		File file = new File(tipo.getRuta());
 		if (file.exists()) {
-			ArrayList listaCliente = (ArrayList) buscar.obtener();
+			ArrayList listaCliente = (ArrayList) unif.obtener();
 			if (listaCliente.contains(cliente)) {
-
+				int posicion = listaCliente.indexOf(cliente);
+				return (Cliente) listaCliente.get(posicion);
 			}
 
 		}
@@ -32,7 +34,7 @@ public class Consulta implements IConsultas {
 	}
 
 	@Override
-	public Pedido consultaPedido(Date id, Tipo tipo) {
+	public Pedido consultaPedido(String fecha, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
 		Pedido pedido = null;
 		File file = new File(tipo.getRuta());
@@ -45,13 +47,19 @@ public class Consulta implements IConsultas {
 
 	@Override
 	public Articulo consultaArticulo(String id, Tipo tipo) {
-		GestorUnificado buscar = new GestorUnificado(tipo);
-		Articulo articulo = null;
+		gestor guardar = new gestor(tipo);
+		GestorUnificado unif = new GestorUnificado(tipo);
+		Articulo articulo = new Articulo(id, "tele", 45060f, "tele cara");
 		File file = new File(tipo.getRuta());
 		if (file.exists()) {
-			articulo = (Articulo) buscar.obtener();
-		}
-		return articulo;
-	}
+			ArrayList listaArticulo = (ArrayList) unif.obtener();
+			if (listaArticulo.contains(articulo)) {
+				int posicion = listaArticulo.indexOf(articulo);
+				return (Articulo) listaArticulo.get(posicion);
+			}
 
+		}
+		return null;
+
+	}
 }

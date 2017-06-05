@@ -9,6 +9,6 @@ import Utiles.Tipo;
 
 public interface IConsultas {
 public Cliente consultaCliente(String dni, Tipo tipo);
-public Pedido consultaPedido(Date id, Tipo tipo);
+public Pedido consultaPedido(String id, Tipo tipo);
 public Articulo consultaArticulo(String id, Tipo tipo);
 }

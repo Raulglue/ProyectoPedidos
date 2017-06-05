@@ -35,7 +35,7 @@ Alta alta = new Alta();
 		assertTrue(listaCliente.contains(clienteDos));
 	}
 	
-	@Ignore
+	@Test
 	public void testAltaArticulo() { 
 		GestorUnificado gestor= new GestorUnificado(Tipo.articuloTest);
 		Articulo articulo = new Articulo("3", "Television de tubo", 500f,"Television vintage");
@@ -46,7 +46,7 @@ Alta alta = new Alta();
 		
 	}
 
-	@Ignore
+	@Test
 	public void testAltaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
 		String fecha= "1";
