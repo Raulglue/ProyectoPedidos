@@ -25,11 +25,13 @@ public class Alta implements IAltas {
 				listaCliente.add(MiCliente);
 				return guardar.escribir(listaCliente);
 			}
-		}
+		} else if (!listaCliente.contains(MiCliente)) {
+			listaCliente.add(MiCliente);
+			return guardar.escribir(listaCliente);
 		
+	}
 		return false;
 	}
-
 	
 
 	@Override

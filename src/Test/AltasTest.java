@@ -21,14 +21,18 @@ public class AltasTest {
 Alta alta = new Alta();
 
 
-	@Ignore
+	@Test
 	public void testAltaCliente() {
 		GestorUnificado gestor= new GestorUnificado(Tipo.clienteTest);
+	
+		Cliente clienteDos = new Cliente("2", "Pedro", "Merida");
 		Cliente cliente = new Cliente("1", "Juan", "Almendralejo");
 		gestor.borraArchivo();
 		assertTrue(alta.altaCliente(cliente.getDni(), cliente.getNombre(), cliente.getDireccion(), Tipo.clienteTest));
+		assertTrue(alta.altaCliente(clienteDos.getDni(), clienteDos.getNombre(), clienteDos.getDireccion(), Tipo.clienteTest));
 		ArrayList listaCliente = (ArrayList) gestor.obtener();
 		assertTrue(listaCliente.contains(cliente));
+		assertTrue(listaCliente.contains(clienteDos));
 	}
 	
 	@Ignore
@@ -42,7 +46,7 @@ Alta alta = new Alta();
 		
 	}
 
-	@Test
+	@Ignore
 	public void testAltaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
 		String fecha= "1";
