@@ -50,7 +50,7 @@ public class ConsultaTest {
 		gestor.borraArchivo();
 		assertTrue(alta.altaPedido(buscarP.getId(), buscarP.getCliente(), buscarP.getLineaPedido(), Tipo.pedidoTest));
 		assertTrue(alta.altaPedido(buscarPDos.getId(), buscarPDos.getCliente(), buscarPDos.getLineaPedido(), Tipo.pedidoTest));
-		Pedido pedidoDos = consulta.consultaPedido(fecha, Tipo.pedidoTest);
+		Pedido pedidoDos = consulta.consultaPedido("3", Tipo.pedidoTest);
 		assertTrue(buscarP.equals(pedidoDos));
 	}
 

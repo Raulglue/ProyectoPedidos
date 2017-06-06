@@ -3,6 +3,7 @@ package Control;
 import Control.adaptador.GestorUnificado;
 import Modelo.Cliente;
 import Utiles.Tipo;
+import Utiles.Varios;
 
 import java.io.File;
 import java.sql.Date;
@@ -36,10 +37,10 @@ public class Consulta implements IConsultas {
 	@Override
 	public Pedido consultaPedido(String fecha, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
-		Pedido pedido = null;
+		Pedido pedido = new Pedido("null", new Cliente("null", "null", "null"), new ArrayList<>());;
 		File file = new File(tipo.getRuta());
 		if (file.exists()) {
-			pedido = (Pedido) buscar.obtener();
+			pedido = (Pedido) new Varios().leerPedido(tipo.getRuta(), tipo.isLista(), fecha);
 
 		}
 		return pedido;
