@@ -54,15 +54,19 @@ public class Varios {
 				if (archivo.length()>0) {
 				FileInputStream flujoEntrada = new FileInputStream(archivo);
 				adaptadorLectura = new ObjectInputStream(flujoEntrada);
-				do {
-					if((Pedido) adaptadorLectura.readObject()==null){
-						encontrado =true;
-					}else {
-						socio = (Pedido) adaptadorLectura.readObject();
-					}
-					if(((Pedido)socio).equals(pedido)|| socio ==null)
-						encontrado = true;
-				} while (!encontrado);
+				try {
+					do {
+						if((Pedido) adaptadorLectura.readObject()==null){
+							encontrado =true;
+						}else {
+							socio = (Pedido) adaptadorLectura.readObject();
+						}
+						if(((Pedido)socio).equals(pedido)|| socio ==null)
+							encontrado = true;
+					} while (!encontrado);
+				} catch (Exception e) {
+//					e.printStackTrace();
+				}
 				
 				// este controla si debe cerrarse o no
 				if (unico)
@@ -82,9 +86,6 @@ public class Varios {
 			if (Constantes.errores)
 				e.printStackTrace();
 		} catch (IOException e) {
-			if (Constantes.errores)
-				e.printStackTrace();
-		} catch (ClassNotFoundException e) {
 			if (Constantes.errores)
 				e.printStackTrace();
 		}
