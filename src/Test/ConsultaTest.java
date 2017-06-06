@@ -21,7 +21,7 @@ public class ConsultaTest {
 	Alta alta = new Alta();
 	Consulta consulta = new Consulta();
 
-	@Test
+	@Ignore
 	public void testConsultaCliente() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.clienteTest);
 		Cliente cliente = new Cliente("1", "Juan", "Almendralejo");
@@ -36,20 +36,25 @@ public class ConsultaTest {
 	public void testConsultaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
 		String fecha = "1";
+		String fechaDos = "2";
 		Cliente cliente = new Cliente("2", "Pedro", "Merida");
+		Cliente clienteDos = new Cliente("3", "Juan", "Madrid");
 		ArrayList linea = new ArrayList();
 		Articulo articulo = new Articulo("1", "Peine", 20f, "Primeras calidades");
 		Articulo segundo = new Articulo("2", "Coca Cola Zero", 50f, "Zero sabor");
-		Pedido buscarP = new Pedido(fecha, cliente, linea);
+		
 		linea.add(new LineaPedido(1, articulo, 2));
 		linea.add(new LineaPedido(2, segundo, 1));
+		Pedido buscarP = new Pedido(fecha, cliente, linea);
+		Pedido buscarPDos = new Pedido(fechaDos, clienteDos, linea);
 		gestor.borraArchivo();
 		assertTrue(alta.altaPedido(buscarP.getId(), buscarP.getCliente(), buscarP.getLineaPedido(), Tipo.pedidoTest));
+		assertTrue(alta.altaPedido(buscarPDos.getId(), buscarPDos.getCliente(), buscarPDos.getLineaPedido(), Tipo.pedidoTest));
 		Pedido pedidoDos = consulta.consultaPedido(fecha, Tipo.pedidoTest);
 		assertTrue(buscarP.equals(pedidoDos));
 	}
 
-	@Test
+	@Ignore
 	public void testConsultaArticulo() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.articuloTest);
 		Articulo articulo = new Articulo("3", "Television de tubo", 500f, "Television vintage");

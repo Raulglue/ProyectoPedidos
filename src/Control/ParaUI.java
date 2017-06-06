@@ -19,11 +19,25 @@ import Utiles.Varios;
 import Vista.UI;
 
 public class ParaUI extends UI {
+	
 	Alta altas = new Alta();
 	Bajas bajas = new Bajas();
 	Consulta consultas = new Consulta();
 	Varios varios = new Varios();
+//	GestorUnificado gestor ;
+	
 	public ParaUI() {
+		
+		
+		btnAltaCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GestorUnificado gestor = new GestorUnificado(Tipo.cliente);
+				((CardLayout)contentPane.getLayout()).show(contentPane, "name_109310969146127");
+				
+			}
+			
+		
+		});
 
 		btnAltaClienteConfirmar.addActionListener(new ActionListener() {
 

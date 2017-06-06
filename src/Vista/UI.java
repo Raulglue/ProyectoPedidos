@@ -46,6 +46,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class UI extends JFrame {
+	
 	protected JPanel contentPane;
 	protected JTextField txtDNIAltaCliente;
 	protected JTextField txtNombreAltaCliente;
@@ -76,6 +77,7 @@ public class UI extends JFrame {
 	protected JTextField txtDNIBajaCliente;
 	private JTable table;
 	protected JButton btnAltaArticulo;
+	protected JButton btnAltaCliente;
 
 	/**
 	 * Launch the application.
@@ -285,13 +287,9 @@ public class UI extends JFrame {
 		gbc_lblPedido.gridy = 3;
 		panel.add(lblPedido, gbc_lblPedido);
 		
-		JButton btnAltaCliente = new JButton("Dar de alta pedido");
+		btnAltaCliente = new JButton("Dar de alta pedido");
 		btnAltaCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnAltaCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				((CardLayout)contentPane.getLayout()).show(contentPane, "name_109310969146127");
-			}
-		});
+	
 		GridBagConstraints gbc_btnAltaCliente = new GridBagConstraints();
 		gbc_btnAltaCliente.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAltaCliente.gridx = 3;
@@ -664,6 +662,7 @@ public class UI extends JFrame {
 		gbc_lblClienteAltaPedido.gridx = 0;
 		gbc_lblClienteAltaPedido.gridy = 2;
 		panelAltaPedidoBtn.add(lblClienteAltaPedido, gbc_lblClienteAltaPedido);
+		
 		
 		comboBoxClienteAltaPedido = new JComboBox();
 		comboBoxClienteAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
