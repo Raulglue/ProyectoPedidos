@@ -35,4 +35,9 @@ public class Cliente implements Serializable {
 	public boolean equals(Object obj) {
 		return this.dni.equals(((Cliente) obj).dni);
 	}
+	@Override
+	public String toString() {
+		
+		return this.nombre;
+	}
 }

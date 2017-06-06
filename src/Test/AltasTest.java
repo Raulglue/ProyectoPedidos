@@ -19,7 +19,7 @@ import jdk.nashorn.internal.ir.annotations.Ignore;
 
 public class AltasTest {
 Alta alta = new Alta();
-
+Consulta consulta = new Consulta();
 
 	@Test
 	public void testAltaCliente() {
@@ -53,6 +53,7 @@ Alta alta = new Alta();
 	public void testAltaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
 		String fecha= "1";
+		String fechaDos= "1";
 		Cliente cliente= new Cliente("2", "Pedro", "Merida");
 		ArrayList linea = new ArrayList();
 		Articulo articulo = new Articulo("1", "Peine", 20f, "Primeras calidades");
@@ -60,10 +61,14 @@ Alta alta = new Alta();
 		linea.add(new LineaPedido(1, articulo,2 ));
 		linea.add(new LineaPedido(2, segundo, 1));
 		Pedido pedido = new Pedido(fecha, cliente, linea);
+		Pedido pedidoDos = new Pedido(fechaDos, cliente, linea);
 		gestor.borraArchivo();
 		assertTrue(alta.altaPedido(pedido.getId(), pedido.getCliente(), pedido.getLineaPedido(), Tipo.pedidoTest));
-		Pedido pedidoP =(Pedido) gestor.obtener();
+		assertTrue(alta.altaPedido(pedidoDos.getId(), pedidoDos.getCliente(), pedidoDos.getLineaPedido(), Tipo.pedidoTest));
+		Pedido pedidoP =consulta.consultaPedido(pedido.getId(), Tipo.pedidoTest);
+		Pedido pedidoDosP =consulta.consultaPedido(pedido.getId(), Tipo.pedidoTest);
 		assertTrue(pedido.equals(pedidoP));
+		assertTrue(pedidoDos.equals(pedidoDosP));
 		
 	}
 

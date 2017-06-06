@@ -44,9 +44,11 @@ import java.awt.Toolkit;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Utiles.Varios;
+
 
 public class UI extends JFrame {
-	
+	Varios varios = new Varios();
 	protected JPanel contentPane;
 	protected JTextField txtDNIAltaCliente;
 	protected JTextField txtNombreAltaCliente;
@@ -75,9 +77,10 @@ public class UI extends JFrame {
 	protected JTextField txtIDBajaArticulo;
 	protected JTextField txtIDBajaPedido;
 	protected JTextField txtDNIBajaCliente;
-	private JTable table;
+	protected JTable table;
 	protected JButton btnAltaArticulo;
 	protected JButton btnAltaCliente;
+	private JScrollPane scrollPaneTablaAltaPedido;
 
 	/**
 	 * Launch the application.
@@ -635,7 +638,6 @@ public class UI extends JFrame {
 		panelAltaPedidoBtn.add(lblIDAltaPedido, gbc_lblIDAltaPedido);
 		
 		txtIDAltaPedido = new JTextField();
-		txtIDAltaPedido.setEditable(false);
 		txtIDAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_txtIDAltaPedido = new GridBagConstraints();
 		gbc_txtIDAltaPedido.gridwidth = 4;
@@ -664,7 +666,7 @@ public class UI extends JFrame {
 		panelAltaPedidoBtn.add(lblClienteAltaPedido, gbc_lblClienteAltaPedido);
 		
 		
-		comboBoxClienteAltaPedido = new JComboBox();
+		comboBoxClienteAltaPedido = new JComboBox<>(varios.toArray(varios.obtenerClientes()));
 		comboBoxClienteAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_comboBoxClienteAltaPedido = new GridBagConstraints();
 		gbc_comboBoxClienteAltaPedido.gridwidth = 3;
@@ -698,7 +700,7 @@ public class UI extends JFrame {
 		gbc_dummy10.gridy = 4;
 		panelAltaPedidoBtn.add(dummy10, gbc_dummy10);
 		
-		JScrollPane scrollPaneTablaAltaPedido = new JScrollPane();
+		scrollPaneTablaAltaPedido = new JScrollPane();
 		GridBagConstraints gbc_scrollPaneTablaAltaPedido = new GridBagConstraints();
 		gbc_scrollPaneTablaAltaPedido.gridheight = 4;
 		gbc_scrollPaneTablaAltaPedido.insets = new Insets(0, 0, 10, 10);

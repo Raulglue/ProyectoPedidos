@@ -12,5 +12,14 @@ public class LineaPedido implements Serializable{
 		this.articulo = articulo;
 		this.cantidad = cantidad;
 	}
+	public int getNumeroLinea() {
+		return numeroLinea;
+	}
+	public Articulo getArticulo() {
+		return articulo;
+	}
+	public int getCantidad() {
+		return cantidad;
+	}
 	
 }

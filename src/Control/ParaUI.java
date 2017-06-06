@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 import Control.adaptador.GestorUnificado;
@@ -14,29 +16,25 @@ import Control.interfaz.IBajas;
 import Control.interfaz.IConsultas;
 import Modelo.Articulo;
 import Modelo.Cliente;
+import Modelo.Pedido;
 import Utiles.Tipo;
 import Utiles.Varios;
 import Vista.UI;
 
 public class ParaUI extends UI {
-	
+
 	Alta altas = new Alta();
 	Bajas bajas = new Bajas();
 	Consulta consultas = new Consulta();
 	Varios varios = new Varios();
-//	GestorUnificado gestor ;
-	
+
 	public ParaUI() {
-		
-		
+
 		btnAltaCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GestorUnificado gestor = new GestorUnificado(Tipo.cliente);
-				((CardLayout)contentPane.getLayout()).show(contentPane, "name_109310969146127");
-				
+				((CardLayout) contentPane.getLayout()).show(contentPane, "name_109310969146127");
 			}
-			
-		
+
 		});
 
 		btnAltaClienteConfirmar.addActionListener(new ActionListener() {
@@ -52,9 +50,10 @@ public class ParaUI extends UI {
 
 		btnAltaPedidoConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBoxClienteAltaPedido = varios.rellenaCombo(comboBoxClienteAltaPedido);
+				ArrayList lista = new ArrayList<>();
+				lista = varios.rellenaLista(lista, table);
 				boolean pedidob = altas.altaPedido(txtIDAltaPedido.getText(),
-						(Cliente) comboBoxClienteAltaPedido.getSelectedItem(), new ArrayList(), Tipo.pedido);
+						(Cliente) comboBoxClienteAltaPedido.getSelectedItem(), lista, Tipo.pedido);
 			}
 
 		});
@@ -67,24 +66,24 @@ public class ParaUI extends UI {
 			}
 		});
 
-		btnBajaClienteConfirmar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bajas.bajaCliente(txtDNIBajaCliente.getText(), Tipo.cliente);
-			}
-		});
+		// btnBajaClienteConfirmar.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// bajas.bajaCliente(txtDNIBajaCliente.getText(), Tipo.cliente);
+		// }
+		// });
 
-		btnBajaPedidoConfirmar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bajas.bajaPedido(txtIDBajaPedido, Tipo.pedido);
-			}
+		// btnBajaPedidoConfirmar.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// bajas.bajaPedido(txtIDBajaPedido, Tipo.pedido);
+		// }
+		//
+		// });
 
-		});
-
-		btnBajaArticuloConfirmar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bajas.bajaArticulo(txtIDBajaArticulo.getText(), Tipo.articulo);
-			}
-		});
+		// btnBajaArticuloConfirmar.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// bajas.bajaArticulo(txtIDBajaArticulo.getText(), Tipo.articulo);
+		// }
+		// });
 
 		btnConsultaClienteBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,7 +96,9 @@ public class ParaUI extends UI {
 
 		btnConsultaPedidoBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				consultas.consultaPedido(txtIDConsultaPedido.getText(), Tipo.pedido);
+				Pedido pedido = consultas.consultaPedido(txtIDConsultaPedido.getText(), Tipo.pedido);
+				txtResultadoConsultaPedido
+						.setText("id: " + pedido.getId() + ", cliente : " + pedido.getCliente().getNombre());
 			}
 
 		});
@@ -106,8 +107,9 @@ public class ParaUI extends UI {
 			public void actionPerformed(ActionEvent e) {
 				Articulo articulo = consultas.consultaArticulo(txtIDConsultaArticulo.getText(), Tipo.articulo);
 				if (articulo != null)
-					txtResultadoConsultaArticulo.setText("ID: " + articulo.getId() + ",nombre: " + articulo.getNombre()
-							+ ", precio: " + articulo.getPrecio());
+					txtResultadoConsultaArticulo.setText(
+							"ID: " + articulo.getId() + " , nombre: " + articulo.getNombre() + " , descripcion: "
+									+ articulo.getDescripcion() + " , precio: " + articulo.getPrecio());
 			}
 		});
 

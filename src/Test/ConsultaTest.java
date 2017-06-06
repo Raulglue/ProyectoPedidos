@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import Control.Alta;
 import Control.Consulta;
+import Control.gestor;
 import Control.adaptador.GestorUnificado;
 import Modelo.Articulo;
 import Modelo.Cliente;
@@ -35,6 +36,7 @@ public class ConsultaTest {
 	@Test
 	public void testConsultaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
+		Control.gestor gest = new gestor(Tipo.pedidoTest);
 		String fecha = "11111";
 		String fechaDos = "22222";
 		Cliente cliente = new Cliente("2", "Pedro", "Merida");
@@ -50,8 +52,11 @@ public class ConsultaTest {
 		gestor.borraArchivo();
 		assertTrue(alta.altaPedido(buscarP.getId(), buscarP.getCliente(), buscarP.getLineaPedido(), Tipo.pedidoTest));
 		assertTrue(alta.altaPedido(buscarPDos.getId(), buscarPDos.getCliente(), buscarPDos.getLineaPedido(), Tipo.pedidoTest));
+		Pedido pedidoTres = consulta.consultaPedido(fechaDos, Tipo.pedidoTest);
 		Pedido pedidoDos = consulta.consultaPedido(fecha, Tipo.pedidoTest);
 		assertTrue(buscarP.equals(pedidoDos));
+		assertTrue(pedidoTres.equals(buscarPDos));
+
 	}
 
 	@Ignore

@@ -37,10 +37,10 @@ public class Consulta implements IConsultas {
 	@Override
 	public Pedido consultaPedido(String fecha, Tipo tipo) {
 		GestorUnificado buscar = new GestorUnificado(tipo);
-		Pedido pedido = new Pedido("null", new Cliente("null", "null", "null"), new ArrayList<>());;
+		Pedido pedido = new Pedido(fecha, new Cliente("null", "null", "null"), new ArrayList<>());;
 		File file = new File(tipo.getRuta());
 		if (file.exists()) {
-			pedido = (Pedido) new Varios().leerPedido(tipo.getRuta(), tipo.isLista(), fecha);
+			pedido = (Pedido) new Varios().leerPedido(tipo.getRuta(), tipo.isLista(), pedido);
 
 		}
 		return pedido;
