@@ -22,7 +22,7 @@ public class ConsultaTest {
 	Alta alta = new Alta();
 	Consulta consulta = new Consulta();
 
-	@Ignore
+	@Test
 	public void testConsultaCliente() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.clienteTest);
 		Cliente cliente = new Cliente("1", "Juan", "Almendralejo");
@@ -59,7 +59,7 @@ public class ConsultaTest {
 
 	}
 
-	@Ignore
+	@Test
 	public void testConsultaArticulo() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.articuloTest);
 		Articulo articulo = new Articulo("3", "Television de tubo", 500f, "Television vintage");
