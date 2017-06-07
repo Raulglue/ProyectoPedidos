@@ -48,6 +48,7 @@ import Utiles.Varios;
 
 
 public class UI extends JFrame {
+	//Jose no te enfades por tener una instancia de varios aqui, era la unica solucion o un gatito moriria
 	Varios varios = new Varios();
 	protected JPanel contentPane;
 	protected JTextField txtDNIAltaCliente;
@@ -80,7 +81,14 @@ public class UI extends JFrame {
 	protected JTable table;
 	protected JButton btnAltaArticulo;
 	protected JButton btnAltaCliente;
-	private JScrollPane scrollPaneTablaAltaPedido;
+	protected JScrollPane scrollPaneTablaAltaPedido;
+	protected JButton btnAgregarLineaAltaPedido;
+	protected JButton btnEliminarLineaAltaPedido;
+	protected JButton btnCalcularPrecioTotal;
+	protected JLabel lblPrecioTotal;
+	protected JLabel lblEstadoAltaPedido;
+	protected JLabel lblEstadoAltaArticulo;
+	protected JLabel lblEstadoAltaCliente;
 
 	/**
 	 * Launch the application.
@@ -385,9 +393,9 @@ public class UI extends JFrame {
 		panelAltaCliente.add(panelAltaClienteBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelAltaClienteBtn = new GridBagLayout();
 		gbl_panelAltaClienteBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gbl_panelAltaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panelAltaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaClienteBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panelAltaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panelAltaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelAltaClienteBtn.setLayout(gbl_panelAltaClienteBtn);
 		
 		JLabel lblDatosCliente = new JLabel("Datos del cliente:");
@@ -494,10 +502,17 @@ public class UI extends JFrame {
 		JLabel dummy4 = new JLabel(" ");
 		dummy4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_dummy4 = new GridBagConstraints();
-		gbc_dummy4.insets = new Insets(0, 0, 0, 5);
+		gbc_dummy4.insets = new Insets(0, 0, 5, 5);
 		gbc_dummy4.gridx = 3;
 		gbc_dummy4.gridy = 8;
 		panelAltaClienteBtn.add(dummy4, gbc_dummy4);
+		
+		lblEstadoAltaCliente = new JLabel("");
+		GridBagConstraints gbc_lblEstadoAltaCliente = new GridBagConstraints();
+		gbc_lblEstadoAltaCliente.insets = new Insets(0, 0, 0, 5);
+		gbc_lblEstadoAltaCliente.gridx = 3;
+		gbc_lblEstadoAltaCliente.gridy = 11;
+		panelAltaClienteBtn.add(lblEstadoAltaCliente, gbc_lblEstadoAltaCliente);
 		
 		JPanel PanelBajaCliente = new JPanel();
 		contentPane.add(PanelBajaCliente, "name_41492361938511");
@@ -624,7 +639,7 @@ public class UI extends JFrame {
 		GridBagLayout gbl_panelAltaPedidoBtn = new GridBagLayout();
 		gbl_panelAltaPedidoBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 		gbl_panelAltaPedidoBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panelAltaPedidoBtn.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
+		gbl_panelAltaPedidoBtn.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_panelAltaPedidoBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		panelAltaPedidoBtn.setLayout(gbl_panelAltaPedidoBtn);
 		
@@ -711,14 +726,10 @@ public class UI extends JFrame {
 		panelAltaPedidoBtn.add(scrollPaneTablaAltaPedido, gbc_scrollPaneTablaAltaPedido);
 		
 		table = new JTable();
+		
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-			},
-			new String[] {
-				"N\u00BA linea", "Art\u00EDculo", "Cantidad", "Precio"
-			}
-		) {
+			new Object[][] {{"1", null, null, null},},
+			new String[] {"N\u00BA linea", "Art\u00EDculo", "Cantidad", "Precio unidad"}) {
 			boolean[] columnEditables = new boolean[] {
 				false, true, true, false
 			};
@@ -729,7 +740,8 @@ public class UI extends JFrame {
 		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPaneTablaAltaPedido.setViewportView(table);
 		
-		JButton btnAgregarLineaAltaPedido = new JButton("");
+		btnAgregarLineaAltaPedido = new JButton("");
+		
 		btnAgregarLineaAltaPedido.setIcon(new ImageIcon(UI.class.getResource("/Vista/AgregarICO.PNG")));
 		btnAgregarLineaAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_btnAgregarLineaAltaPedido = new GridBagConstraints();
@@ -738,7 +750,7 @@ public class UI extends JFrame {
 		gbc_btnAgregarLineaAltaPedido.gridy = 5;
 		panelAltaPedidoBtn.add(btnAgregarLineaAltaPedido, gbc_btnAgregarLineaAltaPedido);
 		
-		JButton btnEliminarLineaAltaPedido = new JButton("");
+		btnEliminarLineaAltaPedido = new JButton("");
 		btnEliminarLineaAltaPedido.setIcon(new ImageIcon(UI.class.getResource("/Vista/EliminarICO.PNG")));
 		btnEliminarLineaAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_btnEliminarLineaAltaPedido = new GridBagConstraints();
@@ -746,6 +758,28 @@ public class UI extends JFrame {
 		gbc_btnEliminarLineaAltaPedido.gridx = 0;
 		gbc_btnEliminarLineaAltaPedido.gridy = 6;
 		panelAltaPedidoBtn.add(btnEliminarLineaAltaPedido, gbc_btnEliminarLineaAltaPedido);
+		
+		btnCalcularPrecioTotal = new JButton("Calcular precio total");
+		
+		GridBagConstraints gbc_btnCalcularPrecioTotal = new GridBagConstraints();
+		gbc_btnCalcularPrecioTotal.insets = new Insets(0, 0, 0, 5);
+		gbc_btnCalcularPrecioTotal.gridx = 1;
+		gbc_btnCalcularPrecioTotal.gridy = 8;
+		panelAltaPedidoBtn.add(btnCalcularPrecioTotal, gbc_btnCalcularPrecioTotal);
+		
+		lblPrecioTotal = new JLabel("Precio total : ");
+		GridBagConstraints gbc_lblPrecioTotal = new GridBagConstraints();
+		gbc_lblPrecioTotal.insets = new Insets(0, 0, 0, 5);
+		gbc_lblPrecioTotal.gridx = 2;
+		gbc_lblPrecioTotal.gridy = 8;
+		panelAltaPedidoBtn.add(lblPrecioTotal, gbc_lblPrecioTotal);
+		
+		lblEstadoAltaPedido = new JLabel("");
+		GridBagConstraints gbc_lblEstadoAltaPedido = new GridBagConstraints();
+		gbc_lblEstadoAltaPedido.insets = new Insets(0, 0, 0, 5);
+		gbc_lblEstadoAltaPedido.gridx = 3;
+		gbc_lblEstadoAltaPedido.gridy = 8;
+		panelAltaPedidoBtn.add(lblEstadoAltaPedido, gbc_lblEstadoAltaPedido);
 		
 		JPanel panelBajaPedido = new JPanel();
 		contentPane.add(panelBajaPedido, "name_41546818907777");
@@ -873,7 +907,7 @@ public class UI extends JFrame {
 		gbl_panelAltaArticuloBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaArticuloBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaArticuloBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gbl_panelAltaArticuloBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panelAltaArticuloBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panelAltaArticuloBtn.setLayout(gbl_panelAltaArticuloBtn);
 		
 		JLabel lblArticuloAltaArticulo = new JLabel("Art\u00EDculo:");
@@ -978,6 +1012,13 @@ public class UI extends JFrame {
 		gbc_btnAltaArticuloConfirmar.gridx = 10;
 		gbc_btnAltaArticuloConfirmar.gridy = 5;
 		panelAltaArticuloBtn.add(btnAltaArticuloConfirmar, gbc_btnAltaArticuloConfirmar);
+		
+		lblEstadoAltaArticulo = new JLabel("");
+		GridBagConstraints gbc_lblEstadoAltaArticulo = new GridBagConstraints();
+		gbc_lblEstadoAltaArticulo.insets = new Insets(0, 0, 0, 5);
+		gbc_lblEstadoAltaArticulo.gridx = 3;
+		gbc_lblEstadoAltaArticulo.gridy = 6;
+		panelAltaArticuloBtn.add(lblEstadoAltaArticulo, gbc_lblEstadoAltaArticulo);
 		
 		JPanel panelBajaArticulo = new JPanel();
 		contentPane.add(panelBajaArticulo, "name_41564778498824");

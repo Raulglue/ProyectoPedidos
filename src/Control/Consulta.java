@@ -28,6 +28,8 @@ public class Consulta implements IConsultas {
 			if (listaCliente.contains(cliente)) {
 				int posicion = listaCliente.indexOf(cliente);
 				return (Cliente) listaCliente.get(posicion);
+			}else{
+				return new Cliente("Cliente no encontrado", "null", "null");
 			}
 
 		}
@@ -59,6 +61,8 @@ public class Consulta implements IConsultas {
 			if (listaArticulo.contains(articulo)) {
 				int posicion = listaArticulo.indexOf(articulo);
 				return (Articulo) listaArticulo.get(posicion);
+			}else{
+				return new Articulo("Articulo no encontrado", "null", 0, "null");
 			}
 
 		}
