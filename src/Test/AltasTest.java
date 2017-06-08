@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import Control.Alta;
-import Control.Consulta;
 import Control.adaptador.GestorUnificado;
+import Control.logica.Alta;
+import Control.logica.Consulta;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.LineaPedido;

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
-import Control.Consulta;
 import Control.adaptador.GestorUnificado;
+import Control.logica.Consulta;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.LineaPedido;

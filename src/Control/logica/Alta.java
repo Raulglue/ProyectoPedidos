@@ -1,10 +1,10 @@
-package Control;
+package Control.logica;
 
 import java.util.ArrayList;
 
 import Control.adaptador.GestorUnificado;
+import Control.adaptador.gestor;
 import Control.interfaz.IAltas;
-import Control.gestor;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.Pedido;

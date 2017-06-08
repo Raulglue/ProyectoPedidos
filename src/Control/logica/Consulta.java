@@ -1,6 +1,7 @@
-package Control;
+package Control.logica;
 
 import Control.adaptador.GestorUnificado;
+import Control.adaptador.gestor;
 import Modelo.Cliente;
 import Utiles.Tipo;
 import Utiles.Varios;

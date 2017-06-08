@@ -1,8 +1,7 @@
-package Control;
+package Control.adaptador;
 
 import java.util.Set;
 
-import Control.adaptador.GestorUnificado;
 import Utiles.Tipo;
 
 public class gestor {

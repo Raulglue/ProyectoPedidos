@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import Control.Alta;
-import Control.Consulta;
-import Control.gestor;
 import Control.adaptador.GestorUnificado;
+import Control.adaptador.gestor;
+import Control.logica.Alta;
+import Control.logica.Consulta;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.LineaPedido;
@@ -36,7 +36,7 @@ public class ConsultaTest {
 	@Test
 	public void testConsultaPedido() {
 		GestorUnificado gestor = new GestorUnificado(Tipo.pedidoTest);
-		Control.gestor gest = new gestor(Tipo.pedidoTest);
+		Control.adaptador.gestor gest = new gestor(Tipo.pedidoTest);
 		String fecha = "11111";
 		String fechaDos = "22222";
 		Cliente cliente = new Cliente("2", "Pedro", "Merida");
