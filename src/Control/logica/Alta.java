@@ -35,7 +35,6 @@ public class Alta implements IAltas {
 	}
 
 	@Override
-
 	public boolean altaArticulo(String id, String nombre, float precio, String descripcion, Tipo tipo) {
 		gestor guardar = new gestor(tipo);
 		GestorUnificado unif = new GestorUnificado(tipo);
