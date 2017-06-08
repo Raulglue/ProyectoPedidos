@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import Control.adaptador.GestorUnificado;
 import Control.logica.Consulta;
@@ -42,6 +43,17 @@ public ArrayList rellenaLista(ArrayList<LineaPedido> lista, JTable table){
 		lista.add(new LineaPedido(i+1, articulo, cantidad));
 	}
 	return lista;
+}
+
+public String calcularPrecio (JTable table){
+	int filas = table.getRowCount();
+	float precio=0;
+	int cantidad =0 ;
+	for (int i = 0; i < filas; i++) {
+		Articulo articulo = consulta.consultaArticulo( (String)table.getValueAt(i, 1), Tipo.articulo);
+		precio+= articulo.getPrecio()*Integer.valueOf((String) table.getValueAt(i, 2));
+	}
+	return String.valueOf(precio);
 }
 	public JComboBox rellenaCombo(JComboBox box) {
 		box = new JComboBox<>();
@@ -106,5 +118,20 @@ public ArrayList rellenaLista(ArrayList<LineaPedido> lista, JTable table){
 
 	private boolean comparar(Object comparador, Object obj) {
 		return comparador.equals(obj);
+	}
+
+	public void precioUnidad(JTable table) {
+		
+		
+	}
+
+	public JTable limpiaTabla(JTable table) {
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		int filas = table.getRowCount();
+		for (int i = filas-1; i > 0; i--) {
+			model.removeRow(i);
+		}
+		return table;
+		
 	}
 }

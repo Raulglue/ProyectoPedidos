@@ -5,12 +5,11 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Pedido implements Serializable{
+public class Pedido implements Serializable {
 	private String id;
 	private Cliente cliente;
 	private ArrayList lineaPedido;
-	
-	
+
 	public Pedido(String id, Cliente cliente, ArrayList lineaPedido) {
 		super();
 		this.id = id;
@@ -18,26 +17,27 @@ public class Pedido implements Serializable{
 		this.lineaPedido = lineaPedido;
 	}
 
-	
-
 	public ArrayList getLineaPedido() {
 		return lineaPedido;
 	}
 
-
-
 	public String getId() {
 		return id;
 	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
 
-
-
-	
-
-
+	@Override
+	public String toString() {
+		String pedidoDato = "";
+		for (Object object : lineaPedido) {
+			pedidoDato = pedidoDato + ((LineaPedido) object).getArticulo().getNombre()+" "+((LineaPedido) object).getCantidad()+" , ";
+		}
+		String datos = "ID: " + this.id + ", cliente: " + this.cliente.getNombre() + ", pedido: "+pedidoDato;
+		return datos;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -55,17 +55,5 @@ public class Pedido implements Serializable{
 			return false;
 		return true;
 	}
-
-
-
-
-
-	
-
-
-
-	
-
-
 
 }
