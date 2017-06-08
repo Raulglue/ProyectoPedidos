@@ -393,9 +393,9 @@ public class UI extends JFrame {
 		panelAltaCliente.add(panelAltaClienteBtn, BorderLayout.CENTER);
 		GridBagLayout gbl_panelAltaClienteBtn = new GridBagLayout();
 		gbl_panelAltaClienteBtn.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gbl_panelAltaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panelAltaClienteBtn.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panelAltaClienteBtn.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panelAltaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panelAltaClienteBtn.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panelAltaClienteBtn.setLayout(gbl_panelAltaClienteBtn);
 		
 		JLabel lblDatosCliente = new JLabel("Datos del cliente:");
@@ -507,11 +507,11 @@ public class UI extends JFrame {
 		gbc_dummy4.gridy = 8;
 		panelAltaClienteBtn.add(dummy4, gbc_dummy4);
 		
-		lblEstadoAltaCliente = new JLabel("");
+		lblEstadoAltaCliente = new JLabel(" ");
 		GridBagConstraints gbc_lblEstadoAltaCliente = new GridBagConstraints();
 		gbc_lblEstadoAltaCliente.insets = new Insets(0, 0, 0, 5);
 		gbc_lblEstadoAltaCliente.gridx = 3;
-		gbc_lblEstadoAltaCliente.gridy = 11;
+		gbc_lblEstadoAltaCliente.gridy = 13;
 		panelAltaClienteBtn.add(lblEstadoAltaCliente, gbc_lblEstadoAltaCliente);
 		
 		JPanel PanelBajaCliente = new JPanel();
@@ -728,10 +728,10 @@ public class UI extends JFrame {
 		table = new JTable();
 		
 		table.setModel(new DefaultTableModel(
-			new Object[][] {{"1", null, null, null},},
-			new String[] {"N\u00BA linea", "Art\u00EDculo", "Cantidad", "Precio unidad"}) {
+			new Object[][] {{"1", null, null},},
+			new String[] {"N\u00BA linea", "Art\u00EDculo", "Cantidad"}) {
 			boolean[] columnEditables = new boolean[] {
-				false, true, true, false
+				false, true, true
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -751,6 +751,7 @@ public class UI extends JFrame {
 		panelAltaPedidoBtn.add(btnAgregarLineaAltaPedido, gbc_btnAgregarLineaAltaPedido);
 		
 		btnEliminarLineaAltaPedido = new JButton("");
+		
 		btnEliminarLineaAltaPedido.setIcon(new ImageIcon(UI.class.getResource("/Vista/EliminarICO.PNG")));
 		btnEliminarLineaAltaPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		GridBagConstraints gbc_btnEliminarLineaAltaPedido = new GridBagConstraints();

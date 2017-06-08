@@ -6,14 +6,8 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 
-import Control.adaptador.GestorUnificado;
-import Control.interfaz.IAltas;
-import Control.interfaz.IBajas;
-import Control.interfaz.IConsultas;
 import Modelo.Articulo;
 import Modelo.Cliente;
 import Modelo.Pedido;
@@ -30,6 +24,34 @@ public class ParaUI extends UI {
 
 	public ParaUI() {
 
+		btnCalcularPrecioTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					lblPrecioTotal.setText(varios.calcularPrecio(table) + " €");
+					lblEstadoAltaPedido.setText("");
+				} catch (Exception e1) {
+					lblEstadoAltaPedido.setText("Comprueba que has introducido todos los datos correctamente");
+				}
+				varios.precioUnidad(table);
+			}
+		});
+
+		btnEliminarLineaAltaPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				model.removeRow(table.getRowCount() - 1);
+			}
+		});
+
+		btnAgregarLineaAltaPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int numeroLinea = table.getRowCount() + 1;
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+				model.addRow(new Object[] { numeroLinea, "", "" });
+			}
+		});
+
 		btnAltaCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				((CardLayout) contentPane.getLayout()).show(contentPane, "name_109310969146127");
@@ -44,25 +66,68 @@ public class ParaUI extends UI {
 
 				boolean clienteb = altas.altaCliente(txtDNIAltaCliente.getText(), txtNombreAltaCliente.getText(),
 						txtDireccionAltaCliente.getText(), Tipo.cliente);
-
+				if (clienteb) {
+					lblEstadoAltaCliente.setText("Alta realizada con exito");
+					txtDNIAltaCliente.setText("");
+					txtNombreAltaCliente.setText("");
+					txtDireccionAltaCliente.setText("");
+				} else {
+					lblEstadoAltaCliente
+							.setText("Ha habido algun error, revisa que hayas introducido todo correctamente");
+				}
 			}
 		});
 
 		btnAltaPedidoConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean pedidob = false;
 				ArrayList lista = new ArrayList<>();
-				lista = varios.rellenaLista(lista, table);
-				boolean pedidob = altas.altaPedido(txtIDAltaPedido.getText(),
-						(Cliente) comboBoxClienteAltaPedido.getSelectedItem(), lista, Tipo.pedido);
+				try {
+					if (!txtIDAltaPedido.getText().isEmpty()) {
+						lista = varios.rellenaLista(lista, table);
+						pedidob = altas.altaPedido(txtIDAltaPedido.getText(),
+								(Cliente) comboBoxClienteAltaPedido.getSelectedItem(), lista, Tipo.pedido);
+					} 
+				} catch (Exception e1) {
+					lblEstadoAltaPedido
+							.setText("Ha habido algun error, revisa que hayas introducido todo correctamente");
+				}
+
+				if (pedidob) {
+					lblEstadoAltaPedido.setText("Alta realizada con exito");
+					txtIDAltaPedido.setText("");
+					table = varios.limpiaTabla(table);
+				} else {
+					lblEstadoAltaPedido
+							.setText("Ha habido algun error, revisa que hayas introducido todo correctamente");
+				}
+
 			}
 
 		});
 
 		btnAltaArticuloConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean articulob = altas.altaArticulo(txtIDAltaArticulo.getText(), txtNombreAltaArticulo.getText(),
-						Float.parseFloat(txtPrecioAltaArticulo.getText()), textPaneDescripcionAltaArticulo.getText(),
-						Tipo.articulo);
+
+				boolean articulob = false;
+				try {
+					articulob = altas.altaArticulo(txtIDAltaArticulo.getText(), txtNombreAltaArticulo.getText(),
+							Float.parseFloat(txtPrecioAltaArticulo.getText()),
+							textPaneDescripcionAltaArticulo.getText(), Tipo.articulo);
+				} catch (NumberFormatException e1) {
+
+					lblEstadoAltaArticulo.setText("El precio tiene que ser numerico");
+				}
+				if (articulob) {
+					txtIDAltaArticulo.setText("");
+					txtNombreAltaArticulo.setText("");
+					txtPrecioAltaArticulo.setText("");
+					textPaneDescripcionAltaArticulo.setText("");
+					lblEstadoAltaArticulo.setText("Alta realizada con exito");
+				} else {
+					lblEstadoAltaArticulo
+							.setText("Ha habido algun error, revisa que hayas introducido todo correctamente");
+				}
 			}
 		});
 
@@ -97,8 +162,7 @@ public class ParaUI extends UI {
 		btnConsultaPedidoBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pedido pedido = consultas.consultaPedido(txtIDConsultaPedido.getText(), Tipo.pedido);
-				txtResultadoConsultaPedido
-						.setText("id: " + pedido.getId() + ", cliente : " + pedido.getCliente().getNombre());
+				txtResultadoConsultaPedido.setText(pedido.toString());
 			}
 
 		});
